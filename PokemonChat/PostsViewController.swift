@@ -25,6 +25,9 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
 {
 
     @IBOutlet weak var displayButton: UIButton!
+    
+    @IBOutlet weak var contentContainer: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var teamSwitch: UISwitch!
@@ -68,14 +71,14 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let tableViewVisible = (sender.tag == 0)
 
-        if self.tableView.hidden {
-            self.tableView.hidden = false
+        if self.contentContainer.hidden {
+            self.contentContainer.hidden = false
         }
         
         UIView.animateWithDuration(0.23, animations: {
-            self.tableView.alpha = CGFloat(sender.tag)
+            self.contentContainer.alpha = CGFloat(sender.tag)
         }) { (done) in
-            self.tableView.hidden = tableViewVisible
+            self.contentContainer.hidden = tableViewVisible
         }
         
         sender.tag = tableViewVisible ? 1 : 0

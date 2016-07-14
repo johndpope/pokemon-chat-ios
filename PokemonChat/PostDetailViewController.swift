@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
-class PostDetailViewController: UIViewController {
+class PostDetailViewController: UIViewController
+{
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var contentContainer: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
