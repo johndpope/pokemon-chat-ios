@@ -36,6 +36,11 @@
 	<false/>
 	<key>CFBundleDisplayName</key>
 	<string>GO Team</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
