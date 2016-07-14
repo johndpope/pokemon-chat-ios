@@ -13,6 +13,8 @@ private let CELL_IDENTIFIER_POST = "PostCell"
 private let TITLE_NEARBY = "nearby"
 private let TITLE_TEAM_ONLY = "team chat"
 
+private let SEGUE_TO_DETAIL = "ListToDetail"
+
 enum PostMode
 {
     case Local
@@ -131,7 +133,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        //
+        self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: self)
     }
     
     

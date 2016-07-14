@@ -36,17 +36,17 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xm7-Rs-vJa">
                                                     <rect key="frame" x="8" y="4" width="304" height="127"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-TW-mfd">
-                                                            <rect key="frame" x="8" y="8" width="75" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-TW-mfd">
+                                                            <rect key="frame" x="8" y="8" width="78" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="bdk-SX-bEM"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Content about PokemonGO and dominance in such game" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlq-3Q-ZlG">
-                                                            <rect key="frame" x="8" y="40" width="288" height="41"/>
+                                                            <rect key="frame" x="8" y="38" width="288" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -56,10 +56,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="hlq-3Q-ZlG" secondAttribute="trailing" constant="8" id="1lB-L1-bEh"/>
                                                         <constraint firstItem="hlq-3Q-ZlG" firstAttribute="leading" secondItem="xm7-Rs-vJa" secondAttribute="leading" constant="8" id="Cms-9T-PzF"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="110" id="N2D-6f-6xI"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hlq-3Q-ZlG" secondAttribute="bottom" constant="8" id="eLM-la-3eu"/>
-                                                        <constraint firstItem="hlq-3Q-ZlG" firstAttribute="top" secondItem="7Pi-TW-mfd" secondAttribute="bottom" constant="8" id="nuQ-ZP-vb7"/>
-                                                        <constraint firstItem="hlq-3Q-ZlG" firstAttribute="top" secondItem="7Pi-TW-mfd" secondAttribute="bottom" constant="8" id="rAh-1s-q7r"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="88" id="N2D-6f-6xI"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hlq-3Q-ZlG" secondAttribute="bottom" constant="10" id="eLM-la-3eu"/>
+                                                        <constraint firstItem="hlq-3Q-ZlG" firstAttribute="top" secondItem="7Pi-TW-mfd" secondAttribute="bottom" constant="6" id="rAh-1s-q7r"/>
                                                         <constraint firstItem="7Pi-TW-mfd" firstAttribute="top" secondItem="xm7-Rs-vJa" secondAttribute="top" constant="8" id="vrf-GI-F8Z"/>
                                                         <constraint firstItem="7Pi-TW-mfd" firstAttribute="leading" secondItem="xm7-Rs-vJa" secondAttribute="leading" constant="8" id="wxr-Np-qOJ"/>
                                                     </constraints>
@@ -141,11 +140,32 @@
                         <outlet property="mapView" destination="E9e-QP-Ufd" id="ins-Yf-d4M"/>
                         <outlet property="tableView" destination="c6U-tg-NFt" id="yQA-CU-AMN"/>
                         <outlet property="teamSwitch" destination="Ggj-Up-B6p" id="CKP-0u-y5i"/>
+                        <segue destination="xga-Jm-ivK" kind="show" identifier="ListToDetail" id="aQo-Xw-3Jy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640" y="640"/>
+            <point key="canvasLocation" x="636" y="640"/>
+        </scene>
+        <!--comments-->
+        <scene sceneID="1nW-P3-bOA">
+            <objects>
+                <viewController id="xga-Jm-ivK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M4c-dH-WOh"/>
+                        <viewControllerLayoutGuide type="bottom" id="cML-1d-xso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xqS-8i-hCH">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="comments" id="4gg-Cr-EeC"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHm-VI-tQy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7K9-bR-9z1">
@@ -156,6 +176,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>

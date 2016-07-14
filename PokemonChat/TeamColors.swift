@@ -9,22 +9,20 @@
 import UIKit
 
 private let COLOR_YELLOW = UIColor(hex:0xDFAC22)
-private let COLOR_BLUE = UIColor(hex:0xDFAC22)
-private let COLOR_RED = UIColor(hex:0x4243A2)
+private let COLOR_BLUE = UIColor(hex:0x4243A2)
+private let COLOR_RED = UIColor(hex:0xC54632)
+private let COLOR_GRAY = UIColor(hex:0x4A4A4A)
 
 class TeamColors: NSObject
 {
     class func colorForTeam(team:Team?) -> UIColor
     {
-        if let team = team {
-            switch team
-            {
-                case .Yellow: return COLOR_YELLOW
-                case .Blue: return COLOR_BLUE
-                case .Red: return COLOR_RED
-            }
-        } else {
-            return UIColor.darkGrayColor()
+        switch team
+        {
+            case .Some(.Yellow): return COLOR_YELLOW
+            case .Some(.Blue): return COLOR_BLUE
+            case .Some(.Red): return COLOR_RED
+            default: return COLOR_GRAY
         }
     }
 }
