@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943916021D3806CB007EB9F5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943916011D3806CB007EB9F5 /* Connector.swift */; };
+		94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175A91D3807B000A4B2AA /* PostRouter.swift */; };
+		94D175AC1D380A3400A4B2AA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175AB1D380A3400A4B2AA /* Team.swift */; };
+		94D175AE1D380DC700A4B2AA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175AD1D380DC700A4B2AA /* Strings.swift */; };
+		94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175B01D380DDF00A4B2AA /* Dating.swift */; };
+		94D175B31D380DF400A4B2AA /* Shorthand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175B21D380DF400A4B2AA /* Shorthand.swift */; };
+		94D175B61D383B6000A4B2AA /* TeamColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175B51D383B6000A4B2AA /* TeamColors.swift */; };
 		94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85CB1D373790004749C9 /* AppDelegate.swift */; };
 		94DA85D11D373790004749C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85CF1D373790004749C9 /* Main.storyboard */; };
 		94DA85D31D373790004749C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85D21D373790004749C9 /* Assets.xcassets */; };
@@ -15,9 +22,20 @@
 		94DA85E01D3747C7004749C9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85DF1D3747C7004749C9 /* Post.swift */; };
 		94DA85E41D3747FC004749C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E31D3747FC004749C9 /* User.swift */; };
 		94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E51D374859004749C9 /* PostTableViewCell.swift */; };
+		C9151FFDA1F7FDF4103C49C3 /* Pods_PokemonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464FF52B7D2FAA132D775ED1 /* Pods-PokemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat.debug.xcconfig"; sourceTree = "<group>"; };
+		65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat.release.xcconfig"; sourceTree = "<group>"; };
+		943916011D3806CB007EB9F5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		94D175A91D3807B000A4B2AA /* PostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		94D175AB1D380A3400A4B2AA /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		94D175AD1D380DC700A4B2AA /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		94D175B01D380DDF00A4B2AA /* Dating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dating.swift; sourceTree = "<group>"; };
+		94D175B21D380DF400A4B2AA /* Shorthand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shorthand.swift; sourceTree = "<group>"; };
+		94D175B51D383B6000A4B2AA /* TeamColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamColors.swift; sourceTree = "<group>"; };
 		94DA85C81D373790004749C9 /* PokemonChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DA85CB1D373790004749C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DA85D01D373790004749C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,17 +53,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9151FFDA1F7FDF4103C49C3 /* Pods_PokemonChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7743DFCA9B4B19A76AE481AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8089E516551B3E051A042E57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				464FF52B7D2FAA132D775ED1 /* Pods-PokemonChat.debug.xcconfig */,
+				6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		943915FF1D38068D007EB9F5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				94D175B41D383B3300A4B2AA /* Colors */,
+				943916001D3806A3007EB9F5 /* Networking */,
+				94D175AF1D380DCC00A4B2AA /* Extensions */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		943916001D3806A3007EB9F5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				943916011D3806CB007EB9F5 /* Connector.swift */,
+				94D175A91D3807B000A4B2AA /* PostRouter.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		94D175AF1D380DCC00A4B2AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94D175B21D380DF400A4B2AA /* Shorthand.swift */,
+				94D175AD1D380DC700A4B2AA /* Strings.swift */,
+				94D175B01D380DDF00A4B2AA /* Dating.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		94D175B41D383B3300A4B2AA /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				94D175B51D383B6000A4B2AA /* TeamColors.swift */,
+			);
+			name = Colors;
+			sourceTree = "<group>";
+		};
 		94DA85BF1D373790004749C9 = {
 			isa = PBXGroup;
 			children = (
 				94DA85CA1D373790004749C9 /* PokemonChat */,
 				94DA85C91D373790004749C9 /* Products */,
+				8089E516551B3E051A042E57 /* Pods */,
+				7743DFCA9B4B19A76AE481AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +138,7 @@
 				94DA85CB1D373790004749C9 /* AppDelegate.swift */,
 				94DA85E11D3747CC004749C9 /* Interface */,
 				94DA85E21D3747DC004749C9 /* Models */,
+				943915FF1D38068D007EB9F5 /* Utilities */,
 				94DA85D21D373790004749C9 /* Assets.xcassets */,
 				94DA85D71D373790004749C9 /* Info.plist */,
 			);
@@ -85,6 +161,7 @@
 			children = (
 				94DA85DF1D3747C7004749C9 /* Post.swift */,
 				94DA85E31D3747FC004749C9 /* User.swift */,
+				94D175AB1D380A3400A4B2AA /* Team.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -96,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94DA85DA1D373790004749C9 /* Build configuration list for PBXNativeTarget "PokemonChat" */;
 			buildPhases = (
+				2C81DE2F8EEA7C867A4A3C81 /* [CP] Check Pods Manifest.lock */,
 				94DA85C41D373790004749C9 /* Sources */,
 				94DA85C51D373790004749C9 /* Frameworks */,
 				94DA85C61D373790004749C9 /* Resources */,
+				69805089A615F98D9E7082F3 /* [CP] Embed Pods Frameworks */,
+				FF11671FFDB2667550E9108A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,14 +235,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C81DE2F8EEA7C867A4A3C81 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		69805089A615F98D9E7082F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF11671FFDB2667550E9108A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		94DA85C41D373790004749C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D175B61D383B6000A4B2AA /* TeamColors.swift in Sources */,
 				94DA85E41D3747FC004749C9 /* User.swift in Sources */,
+				94D175B31D380DF400A4B2AA /* Shorthand.swift in Sources */,
+				94D175AE1D380DC700A4B2AA /* Strings.swift in Sources */,
 				94DA85E01D3747C7004749C9 /* Post.swift in Sources */,
 				94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */,
+				94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */,
+				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
+				94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */,
+				943916021D3806CB007EB9F5 /* Connector.swift in Sources */,
 				94DA85DE1D37410F004749C9 /* PostsViewController.swift in Sources */,
 				94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +410,7 @@
 		};
 		94DA85DB1D373790004749C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 464FF52B7D2FAA132D775ED1 /* Pods-PokemonChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PokemonChat/Info.plist;
@@ -286,6 +422,7 @@
 		};
 		94DA85DC1D373790004749C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PokemonChat/Info.plist;

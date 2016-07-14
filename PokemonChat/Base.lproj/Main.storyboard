@@ -42,13 +42,13 @@
                                                                 <constraint firstAttribute="height" constant="24" id="bdk-SX-bEM"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Content about PokemonGO and dominance in such game" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlq-3Q-ZlG">
                                                             <rect key="frame" x="8" y="40" width="288" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -113,7 +113,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="nearby" id="pB4-kZ-NB4">
                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="vs6-dk-cr1">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Ggj-Up-B6p">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Ggj-Up-B6p">
                                 <rect key="frame" x="16" y="6" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.91764705882352937" green="0.68627450980392157" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,6 +140,7 @@
                         <outlet property="displayButton" destination="LDN-d2-hm1" id="Pce-K8-TLr"/>
                         <outlet property="mapView" destination="E9e-QP-Ufd" id="ins-Yf-d4M"/>
                         <outlet property="tableView" destination="c6U-tg-NFt" id="yQA-CU-AMN"/>
+                        <outlet property="teamSwitch" destination="Ggj-Up-B6p" id="CKP-0u-y5i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

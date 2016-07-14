@@ -1,7 +1,9 @@
 platform :ios, '9.0'
 use_frameworks!
 
-pod 'Alamofire'
-pod 'PureLayout'
+target 'PokemonChat' do 
+	pod 'Alamofire'
+	pod 'PureLayout'
+end
 
 
