@@ -13,4 +13,10 @@ enum Team : String
     case Yellow = "yellow"
     case Blue = "blue"
     case Red = "red"
+    
+    func color() -> UIColor
+    {
+        let color = TeamColors.colorForTeam(self)
+        return color
+    }
 }

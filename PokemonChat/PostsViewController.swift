@@ -15,11 +15,6 @@ private let TITLE_TEAM_ONLY = "team chat"
 
 private let SEGUE_TO_DETAIL = "ListToDetail"
 
-enum PostMode
-{
-    case Local
-    case Team
-}
 
 class PostsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -32,10 +27,14 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var teamSwitch: UISwitch!
     
-    var postMode = PostMode.Local
-    
     lazy var localPosts = [Post]()
     lazy var teamPosts = [Post]()
+    
+    var currentPosts : [Post] {
+        get {
+            return self.teamSwitch.on ? self.teamPosts : self.localPosts
+        }
+    }
     
     override func viewDidLoad()
     {
@@ -54,6 +53,15 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.teamPosts = teamPosts
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == SEGUE_TO_DETAIL && sender is Post
+        {
+            let detailController = segue.destinationViewController as! PostDetailViewController
+            detailController.post = sender as? Post
         }
     }
     
@@ -86,8 +94,8 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func teamSliderSwitched(sender: UISwitch)
     {
-        self.postMode = sender.on ? .Team : .Local
-        self.title = self.postMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
+        User.currentUser().teamMode = sender.on ? .Team : .Local
+        self.title = User.currentUser().teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
         UIView.animateWithDuration(0.22, animations: {
             self.tableView.alpha = 0
         }) { (done) in
@@ -101,16 +109,12 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    
 //MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let count : Int
-        switch self.postMode
-        {
-            case .Local: count = self.localPosts.count
-            case .Team: count = self.teamPosts.count
-        }
+        let count = self.currentPosts.count
         return count
     }
     
@@ -118,12 +122,7 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(CELL_IDENTIFIER_POST) as! PostTableViewCell
         
-        let post : Post
-        switch self.postMode
-        {
-            case .Local: post = self.localPosts[indexPath.row]
-            case .Team: post = self.teamPosts[indexPath.row]
-        }
+        let post = self.currentPosts[indexPath.row]
         
         cell.contentLabel.text = post.content
         cell.usernameLabel.text = post.username
@@ -136,7 +135,8 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: self)
+        let post = self.currentPosts[indexPath.row]
+        self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: post)
     }
     
     

@@ -1,5 +1,5 @@
 //
-//  PostTableViewCell.swift
+//  CommentTableViewCell.swift
 //  PokemonChat
 //
 //  Created by ----- --- on 7/14/16.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+class CommentTableViewCell: UITableViewCell
+{
 
     @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
-    
-    
-    
     
     override func awakeFromNib()
     {
@@ -26,11 +25,9 @@ class PostTableViewCell: UITableViewCell {
     override func layoutSubviews()
     {
         super.layoutSubviews()
-        
-        //update the shadow path for performance when scrolling
-        self.containerView.rasterizeShadow()
+        self.rasterizeShadow() // for the millis
     }
-    
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

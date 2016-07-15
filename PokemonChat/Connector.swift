@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-let ENDPOINT_LOCAL = "http://localhost:3030"
+let ENDPOINT_LOCAL = "http://192.168.1.106:3030"
 
 private let KEY_PUBLIC_POSTS = "public_posts"
 private let KEY_TEAM_POSTS = "team_posts"
