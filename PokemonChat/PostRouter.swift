@@ -11,7 +11,7 @@ import Alamofire
 protocol PostRouterCompliant
 {
     func postParameters() -> [String:AnyObject]
-    init?(params: [String:AnyObject])
+    static func fromParams(params: [String:AnyObject]) -> Post?
 }
 
 enum PostRouter: URLRequestConvertible

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Post: NSObject, PostRouterCompliant
+class Post: NSObject
 {
     var _id : String!
     var content : String!
@@ -21,9 +21,25 @@ class Post: NSObject, PostRouterCompliant
     var isPrivate = false
     var createdAt : NSDate!
     
-    required init? (params: [String : AnyObject])
+    func isValid() -> Bool
     {
-        super.init()
+        let valid = (self._id != nil
+            && self.content != nil
+            && self.userID != nil
+            && self.latitude != nil
+            && self.longitude != nil
+            && self.team != nil
+            && self.createdAt != nil)
+        
+        return valid
+    }
+}
+
+extension Post : PostRouterCompliant
+{
+    class func fromParams (params: [String : AnyObject]) -> Post?
+    {
+        let post = Post()
         // scrape the params
         let _id = params["_id"] as? String
         let content = params["content"] as? String
@@ -44,23 +60,28 @@ class Post: NSObject, PostRouterCompliant
             createdAt = NSDate(iso8601: createdISO)
         }
         
-        self._id = _id
-        self.content = content
-        self.userID = userID
-        self.username = username
-        self.latitude = latitude
-        self.longitude = longitude
-        self.team = team
-        self.createdAt = createdAt
+        post._id = _id
+        post.content = content
+        post.userID = userID
+        post.username = username
+        post.latitude = latitude
+        post.longitude = longitude
+        post.team = team
+        post.createdAt = createdAt
         if let isPrivate = isPrivate {
-            self.isPrivate = isPrivate
+            post.isPrivate = isPrivate
         }
         if let commentCount = comments {
-            self.commentCount = commentCount
+            post.commentCount = commentCount
         }
         
         // validate the post
-        if !self.isValid() {
+        if post.isValid()
+        {
+            return post
+        }
+        else // failure
+        {
             print("FUCK! Post is invalid.")
             return nil
         }
@@ -78,17 +99,5 @@ class Post: NSObject, PostRouterCompliant
         
         return dictionary as! [String : AnyObject]
     }
-    
-    func isValid() -> Bool
-    {
-        let valid = (self._id != nil
-                    && self.content != nil
-                    && self.userID != nil
-                    && self.latitude != nil
-                    && self.longitude != nil
-                    && self.team != nil
-                    && self.createdAt != nil)
-        
-        return valid
-    }
+
 }

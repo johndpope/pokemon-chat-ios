@@ -42,6 +42,13 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
         self.commentField.tintColor = TeamColors.colorForTeam(User.currentUser().team)
         self.sendButton.tintColor = User.currentUser().currentColor()
         self.listenForKeyboardNotifications(true)
+        
+        if let post = self.post {
+            Connector().commentsForPost(post) { (comments, error) in
+                self.comments = comments
+                self.tableView.reloadData()
+            }
+        }
     }
 
     @IBAction func sendButtonPressed(sender: UIButton)
@@ -54,6 +61,7 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
             self.view.endEditing(true)
             
             let comment = Comment()
+            comment.postID = self.post?._id
             comment.content = commentText
             comment.save({ (comment, error) in
                 if error != nil {
@@ -115,7 +123,7 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
         let comment = self.comments?[indexPath.row]
         let cell = self.tableView.dequeueReusableCellWithIdentifier(CELL_IDENTIFIER_COMMENT) as! CommentTableViewCell
         cell.usernameLabel.text = comment?.username
-        cell.usernameLabel.textColor = comment?.user_team.color()
+        cell.usernameLabel.textColor = comment?.user_team?.color()
         cell.contentLabel.text = comment?.content
         return cell
     }

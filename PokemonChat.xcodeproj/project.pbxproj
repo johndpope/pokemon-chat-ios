@@ -24,6 +24,7 @@
 		94D175CA1D38C33000A4B2AA /* ContentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175C91D38C33000A4B2AA /* ContentLabel.swift */; };
 		94D175CC1D38C56800A4B2AA /* UsernameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175CB1D38C56800A4B2AA /* UsernameLabel.swift */; };
 		94D175CE1D38D65E00A4B2AA /* Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175CD1D38D65E00A4B2AA /* Scrolling.swift */; };
+		94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175CF1D39C31800A4B2AA /* CommentRouter.swift */; };
 		94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85CB1D373790004749C9 /* AppDelegate.swift */; };
 		94DA85D11D373790004749C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85CF1D373790004749C9 /* Main.storyboard */; };
 		94DA85D31D373790004749C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85D21D373790004749C9 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		94D175C91D38C33000A4B2AA /* ContentLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLabel.swift; sourceTree = "<group>"; };
 		94D175CB1D38C56800A4B2AA /* UsernameLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameLabel.swift; sourceTree = "<group>"; };
 		94D175CD1D38D65E00A4B2AA /* Scrolling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scrolling.swift; sourceTree = "<group>"; };
+		94D175CF1D39C31800A4B2AA /* CommentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRouter.swift; sourceTree = "<group>"; };
 		94DA85C81D373790004749C9 /* PokemonChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DA85CB1D373790004749C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DA85D01D373790004749C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				943916011D3806CB007EB9F5 /* Connector.swift */,
 				94D175A91D3807B000A4B2AA /* PostRouter.swift */,
+				94D175CF1D39C31800A4B2AA /* CommentRouter.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				94D175CA1D38C33000A4B2AA /* ContentLabel.swift in Sources */,
 				94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */,
 				94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */,
+				94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */,
 				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
 				94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */,
 				94D175C21D38583B00A4B2AA /* CommentTableViewCell.swift in Sources */,
