@@ -29,4 +29,13 @@ extension UIView
     {
         self.layer.shadowPath = UIBezierPath(rect: self.layer.bounds).CGPath
     }
+    
+    func rasterizedImage() -> UIImage
+    {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0)
+        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
+        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshot
+    }
 }

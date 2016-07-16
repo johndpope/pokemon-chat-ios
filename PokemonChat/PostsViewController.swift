@@ -14,18 +14,20 @@ private let TITLE_NEARBY = "nearby"
 private let TITLE_TEAM_ONLY = "team chat"
 
 private let SEGUE_TO_DETAIL = "ListToDetail"
+private let SEGUE_TO_MENU = "ListToMenu"
 
 
-class PostsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate
 {
 
     @IBOutlet weak var displayButton: UIButton!
     
-    @IBOutlet weak var contentContainer: UIView!
-    
+    @IBOutlet weak var backgroundContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var teamSwitch: UISwitch!
+    @IBOutlet weak var menuButton: BouncingButton!
     
     lazy var localPosts = [Post]()
     lazy var teamPosts = [Post]()
@@ -45,6 +47,8 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.contentInset.top = 10
         self.tableView.contentInset.bottom =  96
+        
+        self.navigationController?.delegate = self
         // Do any additional setup after loading the view.
         
         Connector().getPostsForCurrentLocation { (localPosts, teamPosts, error) in
@@ -65,28 +69,49 @@ class PostsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        if toVC is MenuViewController || fromVC is MenuViewController
+        {
+            let animator = ListMenuAnimator()
+            animator.isPushAnimation = (operation == .Push)
+            return animator
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
     
 //MARK: Actions
 
     @IBAction func menuButtonTapped(sender: UIButton)
     {
         //TODO: go to menu
+        self.performSegueWithIdentifier(SEGUE_TO_MENU, sender: self)
     }
     
     @IBAction func displayButtonPressed(sender: UIButton)
     {
-        //TODO: show the map
+        // show the map, or unhide the list
         
-        let tableViewVisible = (sender.tag == 0)
+        let tableViewVisible = (sender.tag == 0) // this is funny and stupid
 
-        if self.contentContainer.hidden {
-            self.contentContainer.hidden = false
+        if self.self.tableView.hidden {
+            self.tableView.hidden = false
+            self.blurView.hidden = false
+            self.menuButton.hidden = false
         }
         
         UIView.animateWithDuration(0.23, animations: {
-            self.contentContainer.alpha = CGFloat(sender.tag)
+            self.tableView.alpha = CGFloat(sender.tag)
+            self.blurView.alpha = CGFloat(sender.tag)
+            self.menuButton.alpha = CGFloat(sender.tag)
         }) { (done) in
-            self.contentContainer.hidden = tableViewVisible
+            self.tableView.hidden = tableViewVisible
+            self.blurView.hidden = tableViewVisible
+            self.menuButton.hidden = tableViewVisible
         }
         
         sender.tag = tableViewVisible ? 1 : 0
