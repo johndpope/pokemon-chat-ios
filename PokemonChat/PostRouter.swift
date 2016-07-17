@@ -19,7 +19,7 @@ enum PostRouter: URLRequestConvertible
     
     static var authToken: String?
     
-    case Locate(lat: Float, long: Float, within: Float)
+    case Locate(lat: Double, long: Double, within: Double)
     case Create(Post)
     case Read(Post)
     case Update(Post)

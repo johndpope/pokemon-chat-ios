@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		943916021D3806CB007EB9F5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943916011D3806CB007EB9F5 /* Connector.swift */; };
+		943C39061D3B64620043D1AF /* Magellan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39051D3B64620043D1AF /* Magellan.swift */; };
+		943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39071D3B71F20043D1AF /* Cartophile.swift */; };
 		94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175A91D3807B000A4B2AA /* PostRouter.swift */; };
 		94D175AC1D380A3400A4B2AA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175AB1D380A3400A4B2AA /* Team.swift */; };
 		94D175AE1D380DC700A4B2AA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175AD1D380DC700A4B2AA /* Strings.swift */; };
@@ -44,6 +46,8 @@
 		65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat.release.xcconfig"; sourceTree = "<group>"; };
 		943916011D3806CB007EB9F5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		943C39051D3B64620043D1AF /* Magellan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magellan.swift; sourceTree = "<group>"; };
+		943C39071D3B71F20043D1AF /* Cartophile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cartophile.swift; sourceTree = "<group>"; };
 		94D175A91D3807B000A4B2AA /* PostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		94D175AB1D380A3400A4B2AA /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		94D175AD1D380DC700A4B2AA /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		943915FF1D38068D007EB9F5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				943C39041D3B64430043D1AF /* Location */,
 				94D175C01D38522100A4B2AA /* Animations */,
 				94D175B41D383B3300A4B2AA /* Colors */,
 				943916001D3806A3007EB9F5 /* Networking */,
@@ -126,6 +131,14 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		943C39041D3B64430043D1AF /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				943C39051D3B64620043D1AF /* Magellan.swift */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		94D175AF1D380DCC00A4B2AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +148,7 @@
 				94D175AD1D380DC700A4B2AA /* Strings.swift */,
 				94D175B01D380DDF00A4B2AA /* Dating.swift */,
 				94D175C31D385A4700A4B2AA /* UIView+Help.swift */,
+				943C39071D3B71F20043D1AF /* Cartophile.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +406,7 @@
 				94D175CC1D38C56800A4B2AA /* UsernameLabel.swift in Sources */,
 				94D175CA1D38C33000A4B2AA /* ContentLabel.swift in Sources */,
 				94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */,
+				943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */,
 				94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */,
 				94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */,
 				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
@@ -399,6 +414,7 @@
 				94D175C21D38583B00A4B2AA /* CommentTableViewCell.swift in Sources */,
 				943916021D3806CB007EB9F5 /* Connector.swift in Sources */,
 				94D175D51D39EE9000A4B2AA /* ListMenuAnimator.swift in Sources */,
+				943C39061D3B64620043D1AF /* Magellan.swift in Sources */,
 				94DA85DE1D37410F004749C9 /* PostsViewController.swift in Sources */,
 				94D175BC1D3851EA00A4B2AA /* BouncingButton.swift in Sources */,
 				94D175CE1D38D65E00A4B2AA /* Scrolling.swift in Sources */,

@@ -29,7 +29,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
     @IBOutlet weak var mapButton: BouncingButton!
     @IBOutlet weak var coordinateLabel: UILabel!
     
-    var location : CLLocationCoordinate2D? {
+    var location : CLLocationCoordinate2D? = Magellan.sharedMagellan.lastLocation {
         didSet {
             if location != nil {
                 self.coordinateLabel.text = String(format: "%5f, %5f", location!.latitude, location!.longitude)

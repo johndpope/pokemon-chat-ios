@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MapKit
 
 let ENDPOINT_LOCAL = "http://192.168.1.106:3030"
 
@@ -20,9 +21,9 @@ class Connector: NSObject
         return ENDPOINT_LOCAL // for now
     }
     
-    func getPostsForCurrentLocation(completion: ([Post]?, [Post]?, NSError?) -> Void )
+    func getPostsForLocation(location:CLLocationCoordinate2D, completion: ([Post]?, [Post]?, NSError?) -> Void )
     {
-        self.request(PostRouter.Locate(lat: 34, long: -84, within: 5)) { (response, error) in
+        self.request(PostRouter.Locate(lat: location.latitude, long: location.longitude, within: 5)) { (response, error) in
             if error != nil
             {
                 completion(nil, nil, error)

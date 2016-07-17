@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 private let CELL_IDENTIFIER_POST = "PostCell"
 private let TITLE_NEARBY = "nearby"
@@ -17,7 +18,7 @@ private let SEGUE_TO_DETAIL = "ListToDetail"
 private let SEGUE_TO_MENU = "ListToMenu"
 
 
-class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate
+class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate, MKMapViewDelegate
 {
 
     @IBOutlet weak var displayButton: UIButton!
@@ -33,6 +34,15 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     lazy var localPosts = [Post]()
     lazy var teamPosts = [Post]()
     
+    var location : CLLocationCoordinate2D? {
+        didSet {
+            if location != nil {
+                self.mapView.centerCoordinate = location!
+                self.mapView.zoomToHumanLevel()
+            }
+        }
+    }
+    
     var currentPosts : [Post] {
         get {
             return self.teamSwitch.on ? self.teamPosts : self.localPosts
@@ -43,21 +53,35 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     {
         super.viewDidLoad()
         
+        self.mapView.delegate = self
+        
         self.teamSwitch.setOn(false, animated: false)
         self.tableView.estimatedRowHeight = 88
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.contentInset.top = 10
         self.tableView.contentInset.bottom =  96
         
-        self.refreshControl.addTarget(self, action: #selector(fetchPosts), forControlEvents: .ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(fetchPosts as Void -> Void), forControlEvents: .ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         
-        self.fetchPosts()
+        self.fetchPosts(nil, completion:nil)
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        // unpop any selected cells
+        delay(0.2) {
+            if let selectedCell = self.tableView.indexPathForSelectedRow {
+                self.tableView.deselectRowAtIndexPath(selectedCell, animated: true)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
+        
         self.navigationController?.delegate = self
     }
     
@@ -127,9 +151,13 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     {
         User.currentUser().teamMode = sender.on ? .Team : .Local
         self.title = User.currentUser().teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
+        
         UIView.animateWithDuration(0.22, animations: {
             self.tableView.alpha = 0
         }) { (done) in
+            
+            self.updateMapPins()
+            
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
                 self.tableView.contentOffset = CGPoint(x:0, y:-self.tableView.contentInset.top)
@@ -138,6 +166,13 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
                 self.tableView.alpha = 1
             })
         }
+    }
+    
+    @IBAction func refreshButtonPressed(sender: UIButton)
+    {
+        // from map, use its point
+        let mapPoint = self.mapView.centerCoordinate
+        self.fetchPosts(mapPoint, completion:nil)
     }
     
 // MARK: ComposeViewControllerDelegate
@@ -150,15 +185,18 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     func composeViewControllerWillSave(controller: ComposeViewController, post: Post)
     {
         // update the list
-        self.fetchPosts()
+//        self.fetchPosts(nil)
     }
     
     func composeViewControllerSubmitted(controller: ComposeViewController, post: Post, location: CLLocationCoordinate2D)
     {
         //TODO: update location, refresh, then insert
         
-        controller.dismissViewControllerAnimated(true) { 
+        self.location = location
+        
+        controller.dismissViewControllerAnimated(true) {
             self.addPostToTop(post)
+            self.addMapPinForPost(post)
         }
     }
     
@@ -192,18 +230,113 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: post)
     }
     
+//MARK: MKMapViewDelefate
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if annotation is MKUserLocation
+        {
+            return nil
+        }
+        else
+        {
+            let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PINZ")
+            view.canShowCallout = true
+            view.animatesDrop = true
+            return view
+        }
+
+    }
+    
 //MARK: Utilities
     
     func fetchPosts()
     {
-        Connector().getPostsForCurrentLocation { (localPosts, teamPosts, error) in
-            if let localPosts = localPosts, teamPosts = teamPosts {
-                self.localPosts = localPosts
-                self.teamPosts = teamPosts
-                self.refreshControl.endRefreshing()
-                self.tableView.reloadData()
+        self.fetchPosts(nil, completion:nil)
+    }
+    
+    func fetchPosts(location:CLLocationCoordinate2D?, completion:(Void->Void)?)
+    {
+        let fetchFromNetwork : (CLLocationCoordinate2D?) -> Void = { location in
+            self.location = location
+            
+            if let location = location
+            {
+                Connector().getPostsForLocation(location) { (localPosts, teamPosts, error) in
+                    if let localPosts = localPosts, teamPosts = teamPosts {
+                        self.localPosts = localPosts
+                        self.teamPosts = teamPosts
+                        // tableview
+                        self.refreshControl.endRefreshing()
+                        self.tableView.reloadData()
+                        // map
+                        self.updateMapPins()
+                    }
+                }
+            }
+            else // error
+            {
+                self.alertForBadLocation()
             }
         }
+        
+        if let location = location
+        {
+            fetchFromNetwork(location)
+        }
+        else // use gps location
+        {
+            Magellan.sharedMagellan.getLocation { (location, error) in
+                
+                fetchFromNetwork(location)
+            }
+        }
+        
+    }
+    
+    func updateMapPins()
+    {
+        for annotation in self.mapView.annotations
+        {
+            self.mapView.removeAnnotation(annotation)
+        }
+        
+        for post in self.currentPosts
+        {
+            self.addMapPinForPost(post)
+        }
+    }
+    
+    func addMapPinForPost(post:Post)
+    {
+        let annotation = MKPointAnnotation()
+        if let lat = post.latitude, long = post.longitude
+        {
+            let coordinate = CLLocationCoordinate2D(latitude:lat, longitude: long)
+            annotation.coordinate = coordinate
+            annotation.title = post.content
+            
+            self.mapView.addAnnotation(annotation)
+        }
+    }
+    
+    func alertForBadLocation()
+    {
+        // handle location error with alert
+        let controller = UIAlertController(title: "Drat", message: "Can't find your location. Check Settings to make sure you've given us permission to use your location.", preferredStyle: UIAlertControllerStyle.Alert)
+        // dismiss the controller option
+        let okayButton = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: { (_) in
+            controller.dismissViewControllerAnimated(true, completion: nil)
+        })
+        // open settings option
+        let settingsButton = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: { (_) in
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+        })
+        
+        controller.addAction(okayButton)
+        controller.addAction(settingsButton)
+        
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     func addPostToTop(post: Post)

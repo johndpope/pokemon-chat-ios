@@ -24,6 +24,50 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-QP-Ufd">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhi-xi-ct7" userLabel="RefreshButton" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
+                                        <rect key="frame" x="110" y="20" width="100" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="3iu-Xc-4f5"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="b2E-fS-M8z"/>
+                                            <constraint firstAttribute="width" constant="100" id="hcS-QP-T0L"/>
+                                            <constraint firstAttribute="height" constant="40" id="jW3-wi-APN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <state key="normal" title="search here">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <real key="value" value="0.23999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="point" keyPath="layer.shadowOffset">
+                                                <point key="value" x="0.0" y="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3iu-Xc-4f5"/>
+                                                <exclude reference="b2E-fS-M8z"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K6m-et-afk"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapButton" translatesAutoresizingMaskIntoConstraints="NO" id="tpw-pr-mZ8" userLabel="CenterPoint">
+                                        <rect key="frame" x="146" y="224" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="cp5-Ac-g3l"/>
+                                            <constraint firstAttribute="height" constant="28" id="pkT-6V-g93"/>
+                                        </constraints>
+                                    </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0s-iz-Zyn">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lBs-Bf-z5J">
@@ -38,11 +82,15 @@
                                     <constraint firstItem="Q0s-iz-Zyn" firstAttribute="leading" secondItem="gbE-pc-jWi" secondAttribute="leading" id="1Z9-cz-ej6"/>
                                     <constraint firstAttribute="trailing" secondItem="E9e-QP-Ufd" secondAttribute="trailing" id="2SH-5I-wrt"/>
                                     <constraint firstItem="E9e-QP-Ufd" firstAttribute="top" secondItem="gbE-pc-jWi" secondAttribute="top" id="52S-98-5m1"/>
+                                    <constraint firstItem="tpw-pr-mZ8" firstAttribute="centerY" secondItem="gbE-pc-jWi" secondAttribute="centerY" constant="-14" id="6bD-hp-Ge0"/>
                                     <constraint firstItem="E9e-QP-Ufd" firstAttribute="leading" secondItem="gbE-pc-jWi" secondAttribute="leading" id="JEk-SA-RlD"/>
                                     <constraint firstAttribute="bottom" secondItem="Q0s-iz-Zyn" secondAttribute="bottom" id="MBI-pm-lwz"/>
                                     <constraint firstItem="Q0s-iz-Zyn" firstAttribute="top" secondItem="gbE-pc-jWi" secondAttribute="top" id="Yl4-ea-mK1"/>
                                     <constraint firstAttribute="trailing" secondItem="Q0s-iz-Zyn" secondAttribute="trailing" id="ZfP-kx-MxR"/>
                                     <constraint firstAttribute="bottom" secondItem="E9e-QP-Ufd" secondAttribute="bottom" id="bEy-ZM-waJ"/>
+                                    <constraint firstItem="Hhi-xi-ct7" firstAttribute="centerX" secondItem="gbE-pc-jWi" secondAttribute="centerX" id="hcK-HM-ujG"/>
+                                    <constraint firstItem="tpw-pr-mZ8" firstAttribute="centerX" secondItem="gbE-pc-jWi" secondAttribute="centerX" id="tUr-Wk-eAo"/>
+                                    <constraint firstItem="Hhi-xi-ct7" firstAttribute="top" secondItem="gbE-pc-jWi" secondAttribute="top" constant="20" id="tYl-0W-WOZ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c6U-tg-NFt">

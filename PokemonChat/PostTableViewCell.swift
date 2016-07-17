@@ -31,10 +31,16 @@ class PostTableViewCell: UITableViewCell {
         self.containerView.rasterizeShadow()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        selected ? self.touchDown() : self.touchUp()
+    }
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool)
+    {
+        super.setHighlighted(highlighted, animated: animated)
+        highlighted ? self.touchDown() : self.touchUp()
     }
 
 }
