@@ -43,7 +43,10 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
         self.sendButton.tintColor = User.currentUser().currentColor()
         self.listenForKeyboardNotifications(true)
         
-        if let post = self.post {
+        if let post = self.post
+        {
+            self.setupMap(post)
+            
             Connector().commentsForPost(post) { (comments, error) in
                 self.comments = comments
                 self.tableView.reloadData()
@@ -95,6 +98,25 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    @IBAction func mapButtonPressed(sender: UIButton)
+    {
+        // show the map, or unhide the list
+        
+        let tableViewVisible = (sender.tag == 0) // this is funny and stupid
+        
+        if self.self.contentContainer.hidden {
+            self.contentContainer.hidden = true
+        }
+        
+        UIView.animateWithDuration(0.23, animations: {
+            self.contentContainer.alpha = CGFloat(sender.tag)
+        }) { (done) in
+            self.contentContainer.hidden = tableViewVisible
+        }
+        
+        sender.tag = tableViewVisible ? 1 : 0
+    }
+    
     deinit
     {
         self.listenForKeyboardNotifications(false)
@@ -140,13 +162,22 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
 //MARK: Utilities
     
     
-    func updateReplies(replies:Int?)
+    private func updateReplies(replies:Int?)
     {
         let replyCount = replies != nil ? replies! : 0
         self.repliesLabel.text = "\(replyCount) replies"
     }
     
-    func setupTableView()
+    private func setupMap(post:Post?)
+    {
+        if let post = post {
+            self.mapView.addMapPinForPost(post)
+            self.mapView.centerCoordinate = CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude)
+            self.mapView.zoomToHumanLevel()
+        }
+    }
+    
+    private func setupTableView()
     {
         self.tableView.estimatedRowHeight = 88
         self.tableView.rowHeight = UITableViewAutomaticDimension

@@ -668,6 +668,7 @@
                                 <state key="normal" image="MapButton"/>
                                 <connections>
                                     <action selector="displayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jZ5-fq-iA1"/>
+                                    <action selector="mapButtonPressed:" destination="xga-Jm-ivK" eventType="touchUpInside" id="bpF-XI-bLh"/>
                                 </connections>
                             </button>
                         </barButtonItem>

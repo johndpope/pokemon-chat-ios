@@ -196,7 +196,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         
         controller.dismissViewControllerAnimated(true) {
             self.addPostToTop(post)
-            self.addMapPinForPost(post)
+            self.mapView.addMapPinForPost(post)
         }
     }
     
@@ -230,23 +230,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: post)
     }
     
-//MARK: MKMapViewDelefate
-    
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
-    {
-        if annotation is MKUserLocation
-        {
-            return nil
-        }
-        else
-        {
-            let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PINZ")
-            view.canShowCallout = true
-            view.animatesDrop = true
-            return view
-        }
 
-    }
     
 //MARK: Utilities
     
@@ -303,22 +287,10 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         
         for post in self.currentPosts
         {
-            self.addMapPinForPost(post)
+            self.mapView.addMapPinForPost(post)
         }
     }
     
-    func addMapPinForPost(post:Post)
-    {
-        let annotation = MKPointAnnotation()
-        if let lat = post.latitude, long = post.longitude
-        {
-            let coordinate = CLLocationCoordinate2D(latitude:lat, longitude: long)
-            annotation.coordinate = coordinate
-            annotation.title = post.content
-            
-            self.mapView.addAnnotation(annotation)
-        }
-    }
     
     func alertForBadLocation()
     {
