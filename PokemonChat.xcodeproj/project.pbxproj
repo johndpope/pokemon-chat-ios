@@ -27,6 +27,7 @@
 		94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175CF1D39C31800A4B2AA /* CommentRouter.swift */; };
 		94D175D31D39ED4100A4B2AA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175D21D39ED4100A4B2AA /* MenuViewController.swift */; };
 		94D175D51D39EE9000A4B2AA /* ListMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175D41D39EE9000A4B2AA /* ListMenuAnimator.swift */; };
+		94D175D81D3A243F00A4B2AA /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D175D71D3A243F00A4B2AA /* ComposeViewController.swift */; };
 		94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85CB1D373790004749C9 /* AppDelegate.swift */; };
 		94DA85D11D373790004749C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85CF1D373790004749C9 /* Main.storyboard */; };
 		94DA85D31D373790004749C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94DA85D21D373790004749C9 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		94D175CF1D39C31800A4B2AA /* CommentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentRouter.swift; sourceTree = "<group>"; };
 		94D175D21D39ED4100A4B2AA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		94D175D41D39EE9000A4B2AA /* ListMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMenuAnimator.swift; sourceTree = "<group>"; };
+		94D175D71D3A243F00A4B2AA /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		94DA85C81D373790004749C9 /* PokemonChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DA85CB1D373790004749C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94DA85D01D373790004749C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		94D175D61D3A23D900A4B2AA /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				94D175D71D3A243F00A4B2AA /* ComposeViewController.swift */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
 		94DA85BF1D373790004749C9 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +236,7 @@
 			children = (
 				94DA85D41D373790004749C9 /* LaunchScreen.storyboard */,
 				94DA85CF1D373790004749C9 /* Main.storyboard */,
+				94D175D61D3A23D900A4B2AA /* Compose */,
 				94D175B71D383D6700A4B2AA /* Post List */,
 				94D175B81D383D7900A4B2AA /* Post Detail */,
 				94D175D11D39ED2900A4B2AA /* Menu */,
@@ -372,6 +383,7 @@
 				94D175BF1D38521F00A4B2AA /* UIViewAnimations.swift in Sources */,
 				94D175B31D380DF400A4B2AA /* Shorthand.swift in Sources */,
 				94D175AE1D380DC700A4B2AA /* Strings.swift in Sources */,
+				94D175D81D3A243F00A4B2AA /* ComposeViewController.swift in Sources */,
 				94D175BA1D383D8D00A4B2AA /* PostDetailViewController.swift in Sources */,
 				94DA85E01D3747C7004749C9 /* Post.swift in Sources */,
 				94D175D31D39ED4100A4B2AA /* MenuViewController.swift in Sources */,

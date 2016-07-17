@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0C29DF81199280AC8A9C715CCD6A01B64A524DD6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1FCB7BA2E771B138994180864046DD35F85AF06A" : 0,
+    "0C29DF81199280AC8A9C715CCD6A01B64A524DD6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5CF497F8-B66E-4F9D-9C45-FC658DDA1A96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1FCB7BA2E771B138994180864046DD35F85AF06A" : "pokemon-chat-ios\/PokemonChat\/GradientProgressView\/",
+    "0C29DF81199280AC8A9C715CCD6A01B64A524DD6" : "pokemon-chat-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PokemonChat",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PokemonChat.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/0xc00010ff\/pokemon-chat-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0C29DF81199280AC8A9C715CCD6A01B64A524DD6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nrj\/GradientProgressView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1FCB7BA2E771B138994180864046DD35F85AF06A"
+    }
+  ]
+}

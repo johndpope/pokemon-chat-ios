@@ -97,7 +97,9 @@ class ListMenuAnimator: NSObject, UIViewControllerAnimatedTransitioning
         // teh transicion
         let addButtonSnapshot = UIImageView(image: menuViewController.addButton.imageForState(UIControlState.Normal)!)
         let addButtonFrame = containerView.convertRect(menuViewController.addButton.frame, fromView: menuViewController.addButton.superview)
-        let menuButtonFrame = containerView.convertRect(menuViewController.menuButton.frame, fromView: menuViewController.menuButton.superview)
+        var menuButtonFrame = containerView.convertRect(menuViewController.menuButton.frame, fromView: menuViewController.menuButton.superview)
+        menuButtonFrame.origin = CGPoint(x: menuButtonFrame.origin.x + menuButtonFrame.size.width/2, y:menuButtonFrame.origin.y + menuButtonFrame.size.height/2)
+        menuButtonFrame.size = CGSize(width: 0, height: 0)
         
         addButtonSnapshot.frame = addButtonFrame
         containerView.addSubview(addButtonSnapshot)

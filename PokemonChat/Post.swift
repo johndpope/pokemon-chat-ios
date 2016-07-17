@@ -21,6 +21,22 @@ class Post: NSObject
     var isPrivate = false
     var createdAt : NSDate!
     
+    func save(completion:(Post, NSError?) -> Void )
+    {
+        if (self._id != nil) // bail if we already saved it
+        {
+            let error = NSError(domain: "PostModel", code: 500, userInfo: [NSLocalizedDescriptionKey: "Trying to save an existing post"])
+            completion(self, error)
+        }
+        else
+        {
+            Connector().createPost(self, completion: { (post, error) in
+                self.copyPost(post)
+                completion(self, error)
+            })
+        }
+    }
+    
     func isValid() -> Bool
     {
         let valid = (self._id != nil
@@ -32,6 +48,20 @@ class Post: NSObject
             && self.createdAt != nil)
         
         return valid
+    }
+    
+    private func copyPost(post:Post?)
+    {
+        if let post = post {
+            self._id = post._id
+            self.userID = post.userID
+            self.username = post.username
+            self.content = post.content
+            self.latitude = post.latitude
+            self.longitude = post.longitude
+            self.createdAt = post.createdAt
+            self.team = post.team
+        }
     }
 }
 

@@ -109,7 +109,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-aI-Yi5" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
-                                <rect key="frame" x="134" y="432" width="52" height="52"/>
+                                <rect key="frame" x="134" y="422" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="QlM-6G-FSC"/>
                                     <constraint firstAttribute="height" constant="52" id="hgI-eB-6C4"/>
@@ -127,7 +127,7 @@
                             <constraint firstAttribute="trailing" secondItem="gbE-pc-jWi" secondAttribute="trailing" id="CPU-FR-ldB"/>
                             <constraint firstItem="gbE-pc-jWi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="M84-ik-iXd"/>
                             <constraint firstItem="gbE-pc-jWi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MYO-la-5Cd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O9F-aI-Yi5" secondAttribute="bottom" constant="20" id="Q3x-Qn-Heg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O9F-aI-Yi5" secondAttribute="bottom" constant="30" id="Q3x-Qn-Heg"/>
                             <constraint firstItem="c6U-tg-NFt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UBe-Hm-moF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gbE-pc-jWi" secondAttribute="bottom" id="l6w-CT-kLv"/>
                             <constraint firstAttribute="trailing" secondItem="c6U-tg-NFt" secondAttribute="trailing" id="nX9-Qp-djz"/>
@@ -187,8 +187,22 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="65u-c0-gP3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-ra-m8c" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
+                                <rect key="frame" x="105" y="252" width="111" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="E2t-XL-qCe"/>
+                                    <constraint firstAttribute="height" constant="122" id="hJm-G2-sfJ"/>
+                                </constraints>
+                                <state key="normal" image="AddButton-Gray"/>
+                                <connections>
+                                    <action selector="addPostButtonPressed:" destination="bRv-WE-Tgb" eventType="touchUpInside" id="mzL-52-x7k"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMG-Pu-Ag7" userLabel="MenuButton" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
-                                <rect key="frame" x="134" y="432" width="52" height="52"/>
+                                <rect key="frame" x="134" y="422" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Oja-rZ-B5c"/>
                                     <constraint firstAttribute="width" constant="52" id="VoZ-6a-ajT"/>
@@ -199,23 +213,12 @@
                                     <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQf-PR-5Af"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-ra-m8c" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
-                                <rect key="frame" x="105" y="262" width="111" height="122"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="E2t-XL-qCe"/>
-                                    <constraint firstAttribute="height" constant="122" id="hJm-G2-sfJ"/>
-                                </constraints>
-                                <state key="normal" image="AddButton-Gray"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="65u-c0-gP3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="65u-c0-gP3" secondAttribute="trailing" id="2Zs-F0-5Lc"/>
                             <constraint firstItem="65u-c0-gP3" firstAttribute="leading" secondItem="kgX-LI-WR3" secondAttribute="leading" id="GbR-QC-3KL"/>
-                            <constraint firstItem="Gdi-x7-wDi" firstAttribute="top" secondItem="aMG-Pu-Ag7" secondAttribute="bottom" constant="20" id="Vfc-Rd-fWp"/>
+                            <constraint firstItem="Gdi-x7-wDi" firstAttribute="top" secondItem="aMG-Pu-Ag7" secondAttribute="bottom" constant="30" id="Vfc-Rd-fWp"/>
                             <constraint firstItem="aMG-Pu-Ag7" firstAttribute="top" secondItem="UvD-ra-m8c" secondAttribute="bottom" constant="48" id="YVM-4s-Ze5"/>
                             <constraint firstItem="Gdi-x7-wDi" firstAttribute="top" secondItem="65u-c0-gP3" secondAttribute="bottom" id="dVH-Sx-D7V"/>
                             <constraint firstItem="UvD-ra-m8c" firstAttribute="centerX" secondItem="kgX-LI-WR3" secondAttribute="centerX" id="jA3-HF-sa3"/>
@@ -237,11 +240,73 @@
                         <outlet property="addButton" destination="UvD-ra-m8c" id="Qaz-UE-iKb"/>
                         <outlet property="backgroundImageView" destination="65u-c0-gP3" id="CVY-x4-keb"/>
                         <outlet property="menuButton" destination="aMG-Pu-Ag7" id="6q1-H8-90x"/>
+                        <segue destination="KbK-m4-230" kind="presentation" identifier="Compose" id="Jit-RI-kA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFa-eO-iZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="636" y="1334"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="oe6-KA-emM">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0SK-aE-Qt7" customClass="ComposeViewController" customModule="PokemonChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PdA-A7-Zfm"/>
+                        <viewControllerLayoutGuide type="bottom" id="bxB-lm-dzo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IR3-DW-Gfh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-Li-LcV">
+                                <rect key="frame" x="8" y="8" width="305" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.19700697064399719" green="0.19700697064399719" blue="0.19700697064399719" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cTb-Li-LcV" firstAttribute="leading" secondItem="IR3-DW-Gfh" secondAttribute="leading" constant="8" id="fn9-oV-yA9"/>
+                            <constraint firstItem="bxB-lm-dzo" firstAttribute="top" secondItem="cTb-Li-LcV" secondAttribute="bottom" constant="8" id="gJd-Eq-f9c"/>
+                            <constraint firstItem="cTb-Li-LcV" firstAttribute="top" secondItem="PdA-A7-Zfm" secondAttribute="bottom" constant="8" id="i4v-2k-bp7"/>
+                            <constraint firstAttribute="trailing" secondItem="cTb-Li-LcV" secondAttribute="trailing" constant="7" id="pmN-Vy-gQF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="y3D-L9-CVG">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="b9C-An-1KW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T0F-yp-oMM">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="0SK-aE-Qt7" eventType="touchUpInside" id="JV4-FU-td4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ast-iT-KgR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qBd-yT-ugB">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="0SK-aE-Qt7" eventType="touchUpInside" id="aBn-Ar-7MR"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textView" destination="cTb-Li-LcV" id="2Yi-Sa-7tD"/>
+                        <outlet property="textViewBottom" destination="gJd-Eq-f9c" id="7Fe-Om-3AS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tVu-lB-Dqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="1334"/>
         </scene>
         <!--comments-->
         <scene sceneID="1nW-P3-bOA">
@@ -512,6 +577,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNc-ZA-dZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="26" y="640"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XCG-QA-0SW">
+            <objects>
+                <navigationController storyboardIdentifier="ComposeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="KbK-m4-230" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uHF-Ok-7sc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.19700697064399719" green="0.19700697064399719" blue="0.19700697064399719" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0SK-aE-Qt7" kind="relationship" relationship="rootViewController" id="mxh-7k-4rE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14t-p8-vS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="1334"/>
         </scene>
     </scenes>
     <resources>

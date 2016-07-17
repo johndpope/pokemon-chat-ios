@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-let ENDPOINT_LOCAL = "http://192.168.1.106:3030"
+let ENDPOINT_LOCAL = "http://127.0.0.1:3030"
 
 private let KEY_PUBLIC_POSTS = "public_posts"
 private let KEY_TEAM_POSTS = "team_posts"
@@ -86,6 +86,29 @@ class Connector: NSObject
                     let comment = Comment.fromParams(result)
                 {
                     completion(comment, nil)
+                    return
+                }
+                
+                // catch all parsing errors
+                let error = NSError(domain: "Connector", code: 400, userInfo: [NSLocalizedDescriptionKey : "Couldn't understand HTTP response"])
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func createPost(post:Post, completion: (Post?, NSError?) -> Void )
+    {
+        self.request(PostRouter.Create(post)) { (response, error) in
+            if error != nil
+            {
+                completion(nil, error)
+            }
+            else
+            {
+                if let result = response as? [String : AnyObject],
+                    let post = Post.fromParams(result)
+                {
+                    completion(post, nil)
                     return
                 }
                 

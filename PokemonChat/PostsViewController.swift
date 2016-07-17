@@ -17,7 +17,7 @@ private let SEGUE_TO_DETAIL = "ListToDetail"
 private let SEGUE_TO_MENU = "ListToMenu"
 
 
-class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate
+class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate
 {
 
     @IBOutlet weak var displayButton: UIButton!
@@ -28,6 +28,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var teamSwitch: UISwitch!
     @IBOutlet weak var menuButton: BouncingButton!
+    private let refreshControl = UIRefreshControl()
     
     lazy var localPosts = [Post]()
     lazy var teamPosts = [Post]()
@@ -51,13 +52,10 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.navigationController?.delegate = self
         // Do any additional setup after loading the view.
         
-        Connector().getPostsForCurrentLocation { (localPosts, teamPosts, error) in
-            if let localPosts = localPosts, teamPosts = teamPosts {
-                self.localPosts = localPosts
-                self.teamPosts = teamPosts
-                self.tableView.reloadData()
-            }
-        }
+        refreshControl.addTarget(self, action: #selector(fetchPosts), forControlEvents: .ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+        
+        self.fetchPosts()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -66,6 +64,11 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         {
             let detailController = segue.destinationViewController as! PostDetailViewController
             detailController.post = sender as? Post
+        }
+        else if segue.identifier == SEGUE_TO_MENU
+        {
+            let menuController = segue.destinationViewController as! MenuViewController
+            menuController.composeDelegate = self
         }
     }
     
@@ -134,6 +137,25 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         }
     }
     
+// MARK: ComposeViewControllerDelegate
+    
+    func composeViewControllerCancelled(controller: ComposeViewController)
+    {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func composeViewControllerWillSave(controller: ComposeViewController, post: Post)
+    {
+        self.fetchPosts()
+    }
+    
+    func composeViewControllerSubmitted(controller: ComposeViewController, post: Post)
+    {
+        controller.dismissViewControllerAnimated(true) { 
+            self.addPostToTop(post)
+        }
+    }
+    
     
 //MARK: UITableViewDataSource
     
@@ -162,6 +184,31 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     {
         let post = self.currentPosts[indexPath.row]
         self.performSegueWithIdentifier(SEGUE_TO_DETAIL, sender: post)
+    }
+    
+//MARK: Utilities
+    
+    func fetchPosts()
+    {
+        Connector().getPostsForCurrentLocation { (localPosts, teamPosts, error) in
+            if let localPosts = localPosts, teamPosts = teamPosts {
+                self.localPosts = localPosts
+                self.teamPosts = teamPosts
+                self.refreshControl.endRefreshing()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func addPostToTop(post: Post)
+    {
+        let index = NSIndexPath(forRow: 0, inSection: 0)
+        self.teamSwitch.on ? self.teamPosts.insert(post, atIndex: 0) : self.localPosts.insert(post, atIndex: 0)
+        self.tableView.beginUpdates()
+        self.tableView.insertRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Top)
+        self.tableView.endUpdates()
+        self.tableView.scrollToRowAtIndexPath(index, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+
     }
     
     
