@@ -48,7 +48,7 @@ extension String {
     /// check if string has text content
     func hasText() -> Bool
     {
-        let empty = self.isEmpty
+        let empty = self.isEmpty()
         return !empty
     }
     

@@ -49,13 +49,16 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.tableView.contentInset.top = 10
         self.tableView.contentInset.bottom =  96
         
-        self.navigationController?.delegate = self
-        // Do any additional setup after loading the view.
-        
-        refreshControl.addTarget(self, action: #selector(fetchPosts), forControlEvents: .ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(fetchPosts), forControlEvents: .ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         
         self.fetchPosts()
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        self.navigationController?.delegate = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -146,11 +149,14 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     func composeViewControllerWillSave(controller: ComposeViewController, post: Post)
     {
+        // update the list
         self.fetchPosts()
     }
     
-    func composeViewControllerSubmitted(controller: ComposeViewController, post: Post)
+    func composeViewControllerSubmitted(controller: ComposeViewController, post: Post, location: CLLocationCoordinate2D)
     {
+        //TODO: update location, refresh, then insert
+        
         controller.dismissViewControllerAnimated(true) { 
             self.addPostToTop(post)
         }

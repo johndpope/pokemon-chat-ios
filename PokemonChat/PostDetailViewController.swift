@@ -11,7 +11,7 @@ import MapKit
 
 private let CELL_IDENTIFIER_COMMENT = "CommentCell"
 
-class PostDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class PostDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerContentView: UIView!
@@ -49,6 +49,12 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        self.navigationController?.delegate = self
     }
 
     @IBAction func sendButtonPressed(sender: UIButton)
@@ -100,7 +106,9 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
             self.textBoxBottom.constant = keyboardHeight
             self.textContainer.layoutIfNeeded()
             self.tableView.layoutIfNeeded()
-            self.tableView.scrollToBottom(animated: false)
+            if keyboardHeight > 0 {
+                self.tableView.scrollToBottom(animated: false)
+            }
         }
     }
     
@@ -140,6 +148,8 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     func setupTableView()
     {
+        self.tableView.estimatedRowHeight = 88
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
         self.tableView.clipsToBounds = false
         

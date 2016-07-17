@@ -15,8 +15,8 @@ class Post: NSObject
     var userID : String!
     var username : String!
     var commentCount: Int = 0
-    var latitude : Float!
-    var longitude : Float!
+    var latitude : Double!
+    var longitude : Double!
     var team : Team!
     var isPrivate = false
     var createdAt : NSDate!
@@ -76,8 +76,8 @@ extension Post : PostRouterCompliant
         let userID = params["user"] as? String
         let username = params["username"] as? String
         let comments = params["comment_count"] as? Int
-        let latitude = params["latitude"] as? Float
-        let longitude = params["longitude"] as? Float
+        let latitude = params["latitude"] as? Double
+        let longitude = params["longitude"] as? Double
         let teamName = params["team"] as? String
         var team : Team?
         if let teamName = teamName {
