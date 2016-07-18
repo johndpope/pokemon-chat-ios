@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+let NOTIFICATION_TEAM_SWITCH = "team_status_changed"
+
 private let CELL_IDENTIFIER_POST = "PostCell"
 private let TITLE_NEARBY = "nearby"
 private let TITLE_TEAM_ONLY = "team chat"
@@ -151,6 +153,10 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     {
         User.currentUser().teamMode = sender.on ? .Team : .Local
         self.title = User.currentUser().teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
+        
+        // let it be known
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_TEAM_SWITCH, object: User.currentUser())
+        
         
         UIView.animateWithDuration(0.22, animations: {
             self.tableView.alpha = 0

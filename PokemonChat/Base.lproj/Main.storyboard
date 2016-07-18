@@ -157,7 +157,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="dHJ-RO-P6V"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-aI-Yi5" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-aI-Yi5" customClass="PokeballButton" customModule="PokemonChat" customModuleProvider="target">
                                 <rect key="frame" x="134" y="422" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="QlM-6G-FSC"/>
@@ -189,6 +189,11 @@
                                 <rect key="frame" x="16" y="6" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.91764705882352937" green="0.68627450980392157" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="teamSliderSwitched:" destination="BYZ-38-t0r" eventType="valueChanged" id="b2v-d2-iAK"/>
                                 </connections>
@@ -205,6 +210,11 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -238,7 +248,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="65u-c0-gP3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-ra-m8c" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvD-ra-m8c" customClass="AddPostButton" customModule="PokemonChat" customModuleProvider="target">
                                 <rect key="frame" x="105" y="252" width="111" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="E2t-XL-qCe"/>
@@ -249,7 +259,7 @@
                                     <action selector="addPostButtonPressed:" destination="bRv-WE-Tgb" eventType="touchUpInside" id="mzL-52-x7k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMG-Pu-Ag7" userLabel="MenuButton" customClass="BouncingButton" customModule="PokemonChat" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMG-Pu-Ag7" userLabel="MenuButton" customClass="PokeballButton" customModule="PokemonChat" customModuleProvider="target">
                                 <rect key="frame" x="134" y="422" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Oja-rZ-B5c"/>
@@ -699,7 +709,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7A7-E7-xWg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="g8y-QQ-MME">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="g8y-QQ-MME" customClass="TeamNavigationBar" customModule="PokemonChat" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -725,7 +735,7 @@
                 <navigationController storyboardIdentifier="ComposeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="KbK-m4-230" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uHF-Ok-7sc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uHF-Ok-7sc" customClass="TeamNavigationBar" customModule="PokemonChat" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

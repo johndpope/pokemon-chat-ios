@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9431714A1D3C4EB400A56F4B /* TeamNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171491D3C4EB400A56F4B /* TeamNavigationBar.swift */; };
+		9431714C1D3C5C7300A56F4B /* TeamColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714B1D3C5C7300A56F4B /* TeamColorButton.swift */; };
+		9431714E1D3C5E3D00A56F4B /* AddPostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */; };
+		943171501D3C5F0000A56F4B /* PokeballButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714F1D3C5F0000A56F4B /* PokeballButton.swift */; };
 		943916021D3806CB007EB9F5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943916011D3806CB007EB9F5 /* Connector.swift */; };
 		943C39061D3B64620043D1AF /* Magellan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39051D3B64620043D1AF /* Magellan.swift */; };
 		943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39071D3B71F20043D1AF /* Cartophile.swift */; };
@@ -45,6 +49,10 @@
 		464FF52B7D2FAA132D775ED1 /* Pods-PokemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat.release.xcconfig"; sourceTree = "<group>"; };
+		943171491D3C4EB400A56F4B /* TeamNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamNavigationBar.swift; sourceTree = "<group>"; };
+		9431714B1D3C5C7300A56F4B /* TeamColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamColorButton.swift; sourceTree = "<group>"; };
+		9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostButton.swift; sourceTree = "<group>"; };
+		9431714F1D3C5F0000A56F4B /* PokeballButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeballButton.swift; sourceTree = "<group>"; };
 		943916011D3806CB007EB9F5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		943C39051D3B64620043D1AF /* Magellan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magellan.swift; sourceTree = "<group>"; };
 		943C39071D3B71F20043D1AF /* Cartophile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cartophile.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				94D175BB1D3851EA00A4B2AA /* BouncingButton.swift */,
 				94D175C91D38C33000A4B2AA /* ContentLabel.swift */,
 				94D175CB1D38C56800A4B2AA /* UsernameLabel.swift */,
+				943171491D3C4EB400A56F4B /* TeamNavigationBar.swift */,
+				9431714B1D3C5C7300A56F4B /* TeamColorButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -202,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				94D175D21D39ED4100A4B2AA /* MenuViewController.swift */,
+				9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */,
+				9431714F1D3C5F0000A56F4B /* PokeballButton.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -395,6 +407,7 @@
 				94D175B61D383B6000A4B2AA /* TeamColors.swift in Sources */,
 				94DA85E41D3747FC004749C9 /* User.swift in Sources */,
 				94D175BF1D38521F00A4B2AA /* UIViewAnimations.swift in Sources */,
+				9431714A1D3C4EB400A56F4B /* TeamNavigationBar.swift in Sources */,
 				94D175B31D380DF400A4B2AA /* Shorthand.swift in Sources */,
 				94D175AE1D380DC700A4B2AA /* Strings.swift in Sources */,
 				94D175D81D3A243F00A4B2AA /* ComposeViewController.swift in Sources */,
@@ -411,6 +424,8 @@
 				94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */,
 				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
 				94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */,
+				9431714C1D3C5C7300A56F4B /* TeamColorButton.swift in Sources */,
+				943171501D3C5F0000A56F4B /* PokeballButton.swift in Sources */,
 				94D175C21D38583B00A4B2AA /* CommentTableViewCell.swift in Sources */,
 				943916021D3806CB007EB9F5 /* Connector.swift in Sources */,
 				94D175D51D39EE9000A4B2AA /* ListMenuAnimator.swift in Sources */,
@@ -419,6 +434,7 @@
 				94D175BC1D3851EA00A4B2AA /* BouncingButton.swift in Sources */,
 				94D175CE1D38D65E00A4B2AA /* Scrolling.swift in Sources */,
 				94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */,
+				9431714E1D3C5E3D00A56F4B /* AddPostButton.swift in Sources */,
 				94D175C41D385A4700A4B2AA /* UIView+Help.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
