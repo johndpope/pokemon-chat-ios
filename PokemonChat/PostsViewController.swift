@@ -52,7 +52,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     }
     
     override func viewDidLoad()
-    {
+    {        
         super.viewDidLoad()
         
         self.mapView.delegate = self
@@ -151,8 +151,8 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     @IBAction func teamSliderSwitched(sender: UISwitch)
     {
-        User.currentUser().teamMode = sender.on ? .Team : .Local
-        self.title = User.currentUser().teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
+        User.currentUser()?.teamMode = sender.on ? .Team : .Local
+        self.title = User.currentUser()?.teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
         
         // let it be known
         NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_TEAM_SWITCH, object: User.currentUser())
@@ -219,12 +219,16 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(CELL_IDENTIFIER_POST) as! PostTableViewCell
         
-        let post = self.currentPosts[indexPath.row]
-        
-        cell.contentLabel.text = post.content
-        cell.usernameLabel.text = post.username
-        cell.usernameLabel.textColor = TeamColors.colorForTeam(post.team)
-        
+        if self.currentPosts.count > indexPath.row { // <--- workaround for crash when scrolling fast and changing slider
+            
+            let post = self.currentPosts[indexPath.row]
+            
+            cell.contentLabel.text = post.content
+            cell.usernameLabel.text = post.username
+            cell.usernameLabel.textColor = TeamColors.colorForTeam(post.team)
+            
+        }
+
         return cell
     }
     

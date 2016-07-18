@@ -45,7 +45,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
         
         self.setupMap()
         
-        self.textView.tintColor = User.currentUser().currentColor()
+        self.textView.tintColor = User.currentUser()?.currentColor()
         self.textView.text = nil
         self.textView.contentInset.bottom = 8
         self.listenForKeyboardNotifications(true)
@@ -90,7 +90,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
                 post.content = text
                 post.latitude = location.latitude
                 post.longitude = location.longitude
-                post.isPrivate = false
+                post.isPrivate = User.currentUser()?.teamMode == .Team
                 
                 // go refresh shit
                 self.delegate?.composeViewControllerWillSave(self, post: post)
@@ -167,9 +167,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
         
         if let coordinate = self.location {
             self.mapView.setCenterCoordinate(coordinate, animated: false)
-            // set the zoom level
-            let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
-            self.mapView.region = self.mapView.regionThatFits(region)
+            self.mapView.zoomToHumanLevel()
         }
     }
 }

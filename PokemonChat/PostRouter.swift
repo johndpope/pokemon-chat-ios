@@ -71,7 +71,7 @@ enum PostRouter: URLRequestConvertible
         if let token = PostRouter.authToken {
             print("Using given user token")
             mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        } else if let token = User.currentUser()?.token {
+        } else if let token = User.currentUserToken() {
             print("Using default user token")
             mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         } else {

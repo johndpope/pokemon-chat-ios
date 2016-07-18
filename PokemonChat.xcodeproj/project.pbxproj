@@ -11,6 +11,7 @@
 		9431714C1D3C5C7300A56F4B /* TeamColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714B1D3C5C7300A56F4B /* TeamColorButton.swift */; };
 		9431714E1D3C5E3D00A56F4B /* AddPostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */; };
 		943171501D3C5F0000A56F4B /* PokeballButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714F1D3C5F0000A56F4B /* PokeballButton.swift */; };
+		943171521D3C690100A56F4B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171511D3C690100A56F4B /* UserRouter.swift */; };
 		943916021D3806CB007EB9F5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943916011D3806CB007EB9F5 /* Connector.swift */; };
 		943C39061D3B64620043D1AF /* Magellan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39051D3B64620043D1AF /* Magellan.swift */; };
 		943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39071D3B71F20043D1AF /* Cartophile.swift */; };
@@ -53,6 +54,7 @@
 		9431714B1D3C5C7300A56F4B /* TeamColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamColorButton.swift; sourceTree = "<group>"; };
 		9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostButton.swift; sourceTree = "<group>"; };
 		9431714F1D3C5F0000A56F4B /* PokeballButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeballButton.swift; sourceTree = "<group>"; };
+		943171511D3C690100A56F4B /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		943916011D3806CB007EB9F5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		943C39051D3B64620043D1AF /* Magellan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magellan.swift; sourceTree = "<group>"; };
 		943C39071D3B71F20043D1AF /* Cartophile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cartophile.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				943916011D3806CB007EB9F5 /* Connector.swift */,
+				943171511D3C690100A56F4B /* UserRouter.swift */,
 				94D175A91D3807B000A4B2AA /* PostRouter.swift */,
 				94D175CF1D39C31800A4B2AA /* CommentRouter.swift */,
 			);
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94D175B61D383B6000A4B2AA /* TeamColors.swift in Sources */,
+				943171521D3C690100A56F4B /* UserRouter.swift in Sources */,
 				94DA85E41D3747FC004749C9 /* User.swift in Sources */,
 				94D175BF1D38521F00A4B2AA /* UIViewAnimations.swift in Sources */,
 				9431714A1D3C4EB400A56F4B /* TeamNavigationBar.swift in Sources */,

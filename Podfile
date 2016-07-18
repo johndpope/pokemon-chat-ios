@@ -4,6 +4,7 @@ use_frameworks!
 target 'PokemonChat' do 
 	pod 'Alamofire'
 	pod 'PureLayout'
+	pod 'KeychainAccess'
 end
 
 

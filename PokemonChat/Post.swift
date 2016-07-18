@@ -119,11 +119,11 @@ extension Post : PostRouterCompliant
     
     func postParameters() -> [String : AnyObject]
     {
-        let dictionary = [
+        let dictionary : [String: AnyObject?] = [
             "content" : self.content,
             "latitude" : self.latitude,
             "longitude" : self.longitude,
-            "team" : User.currentUser().team.rawValue,
+            "team" : User.currentUser()?.team?.rawValue,
             "is_private" : self.isPrivate
         ]
         

@@ -60,7 +60,7 @@ class TeamColorButton: BouncingButton
     
     private func updateImage()
     {
-        let team = User.currentUser()?.teamMode == .Team ? User.currentUser().team : nil
+        let team = User.currentUser()?.teamMode == .Team ? User.currentUser()?.team : nil
         self.setImage(self.imageForTeam(team), forState: UIControlState.Normal)
     }
 

@@ -61,7 +61,7 @@ enum CommentRouter: URLRequestConvertible
         if let token = CommentRouter.authToken {
             print("Using given user token")
             mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        } else if let token = User.currentUser()?.token {
+        } else if let token = User.currentUserToken() {
             print("Using default user token")
             mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         } else {

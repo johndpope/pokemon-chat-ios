@@ -33,6 +33,7 @@ class TeamNavigationBar: UINavigationBar
     
     func initialize()
     {
+        self.barTintColor = COLOR_GRAY
         self.teamSwitch?.tintColor = COLOR_GRAY
         self.updateBarBasedOnTeamState()
         self.listenForColorChanges(true)
@@ -63,13 +64,15 @@ class TeamNavigationBar: UINavigationBar
     
     func updateBarBasedOnTeamState()
     {
-        let color = User.currentUser().currentColor()
-        let otherColor = color == COLOR_GRAY ? User.currentUser().team.color() : COLOR_GRAY
-        
-        UIView.animateWithDuration(0.23) {
-            self.barTintColor = color
-            self.teamSwitch?.onTintColor = otherColor
-            self.teamSwitch?.backgroundColor = otherColor
+        if let user = User.currentUser() {
+            let color = user.currentColor()
+            let otherColor = color == COLOR_GRAY ? user.team?.color() : COLOR_GRAY
+            
+            UIView.animateWithDuration(0.23) {
+                self.barTintColor = color
+                self.teamSwitch?.onTintColor = otherColor
+                self.teamSwitch?.backgroundColor = otherColor
+            }
         }
     }
 }

@@ -39,8 +39,8 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
         self.updateReplies(self.comments?.count)
         self.setupTableView()
         self.textContainer.drawDropShadowWithOffset(-0.5)
-        self.commentField.tintColor = TeamColors.colorForTeam(User.currentUser().team)
-        self.sendButton.tintColor = User.currentUser().currentColor()
+        self.commentField.tintColor = TeamColors.colorForTeam(User.currentUser()?.team)
+        self.sendButton.tintColor = User.currentUser()?.currentColor()
         self.listenForKeyboardNotifications(true)
         
         if let post = self.post

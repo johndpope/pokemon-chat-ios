@@ -15,10 +15,66 @@ let ENDPOINT_LOCAL = "http://192.168.1.106:3030"
 private let KEY_PUBLIC_POSTS = "public_posts"
 private let KEY_TEAM_POSTS = "team_posts"
 
+typealias AuthResponseClosure = (user:User?, token:String?, error:NSError?) -> Void
+
 class Connector: NSObject
 {
     class func baseAPIEndpoint() -> String {
         return ENDPOINT_LOCAL // for now
+    }
+    
+    func logInUser(user:User, completion:AuthResponseClosure)
+    {
+        self.request(UserRouter.Login(user)) { (response, error) in
+            if error != nil
+            {
+                completion(user:nil, token:nil, error:error)
+            }
+            else // success
+            {
+                if let result = response as? [String:AnyObject],
+                    userResponse = result["user"] as? [String: AnyObject],
+                    token = result["token"] as? String
+                {
+                    if let user = User.fromParams(userResponse)
+                    {
+                        completion(user:user, token: token, error: nil)
+                        return
+                    }
+                }
+                
+                // catch all parsing errors
+                let error = NSError(domain: "Connector", code: 400, userInfo: [NSLocalizedDescriptionKey : "Couldn't understand HTTP response"])
+                completion(user:nil, token: nil, error:error)
+            }
+        }
+    }
+    
+    func signUpUser(user:User, completion:AuthResponseClosure)
+    {
+        self.request(UserRouter.Signup(user)) { (response, error) in
+            if error != nil
+            {
+                completion(user:nil, token:nil, error:error)
+            }
+            else // success
+            {
+                if let result = response as? [String:AnyObject],
+                    userResponse = result["user"] as? [String: AnyObject],
+                    token = result["token"] as? String
+                {
+                    if let user = User.fromParams(userResponse)
+                    {
+                        completion(user:user, token: token, error: nil)
+                        return
+                    }
+                }
+                
+                // catch all parsing errors
+                let error = NSError(domain: "Connector", code: 400, userInfo: [NSLocalizedDescriptionKey : "Couldn't understand HTTP response"])
+                completion(user:nil, token: nil, error:error)
+            }
+        }
     }
     
     func getPostsForLocation(location:CLLocationCoordinate2D, completion: ([Post]?, [Post]?, NSError?) -> Void )
