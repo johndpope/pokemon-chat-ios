@@ -12,6 +12,10 @@
 		9431714E1D3C5E3D00A56F4B /* AddPostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */; };
 		943171501D3C5F0000A56F4B /* PokeballButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431714F1D3C5F0000A56F4B /* PokeballButton.swift */; };
 		943171521D3C690100A56F4B /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171511D3C690100A56F4B /* UserRouter.swift */; };
+		943171551D3CA55600A56F4B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171541D3CA55600A56F4B /* SignupViewController.swift */; };
+		943171571D3CBCD800A56F4B /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171561D3CBCD800A56F4B /* UsernameViewController.swift */; };
+		943171591D3CBCFA00A56F4B /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943171581D3CBCFA00A56F4B /* PasswordViewController.swift */; };
+		9431715B1D3CBD0700A56F4B /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431715A1D3CBD0700A56F4B /* LocationPermissionViewController.swift */; };
 		943916021D3806CB007EB9F5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943916011D3806CB007EB9F5 /* Connector.swift */; };
 		943C39061D3B64620043D1AF /* Magellan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39051D3B64620043D1AF /* Magellan.swift */; };
 		943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C39071D3B71F20043D1AF /* Cartophile.swift */; };
@@ -43,6 +47,7 @@
 		94DA85E01D3747C7004749C9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85DF1D3747C7004749C9 /* Post.swift */; };
 		94DA85E41D3747FC004749C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E31D3747FC004749C9 /* User.swift */; };
 		94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E51D374859004749C9 /* PostTableViewCell.swift */; };
+		94F31FD91D3DFBD8004E281B /* Bookworm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F31FD81D3DFBD8004E281B /* Bookworm.swift */; };
 		C9151FFDA1F7FDF4103C49C3 /* Pods_PokemonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +60,10 @@
 		9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostButton.swift; sourceTree = "<group>"; };
 		9431714F1D3C5F0000A56F4B /* PokeballButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeballButton.swift; sourceTree = "<group>"; };
 		943171511D3C690100A56F4B /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		943171541D3CA55600A56F4B /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		943171561D3CBCD800A56F4B /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		943171581D3CBCFA00A56F4B /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		9431715A1D3CBD0700A56F4B /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
 		943916011D3806CB007EB9F5 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		943C39051D3B64620043D1AF /* Magellan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magellan.swift; sourceTree = "<group>"; };
 		943C39071D3B71F20043D1AF /* Cartophile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cartophile.swift; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 		94DA85DF1D3747C7004749C9 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		94DA85E31D3747FC004749C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		94DA85E51D374859004749C9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		94F31FD81D3DFBD8004E281B /* Bookworm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookworm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,17 @@
 				6F72723FB5F361908FF92556 /* Pods-PokemonChat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		943171531D3CA50D00A56F4B /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				943171541D3CA55600A56F4B /* SignupViewController.swift */,
+				943171561D3CBCD800A56F4B /* UsernameViewController.swift */,
+				943171581D3CBCFA00A56F4B /* PasswordViewController.swift */,
+				9431715A1D3CBD0700A56F4B /* LocationPermissionViewController.swift */,
+			);
+			name = "Auth Flow";
 			sourceTree = "<group>";
 		};
 		943915FF1D38068D007EB9F5 /* Utilities */ = {
@@ -154,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				94D175B21D380DF400A4B2AA /* Shorthand.swift */,
+				94F31FD81D3DFBD8004E281B /* Bookworm.swift */,
 				94D175CD1D38D65E00A4B2AA /* Scrolling.swift */,
 				94D175C71D38B72200A4B2AA /* KeyboardWrangling.swift */,
 				94D175AD1D380DC700A4B2AA /* Strings.swift */,
@@ -265,10 +287,11 @@
 			children = (
 				94DA85D41D373790004749C9 /* LaunchScreen.storyboard */,
 				94DA85CF1D373790004749C9 /* Main.storyboard */,
-				94D175D61D3A23D900A4B2AA /* Compose */,
+				943171531D3CA50D00A56F4B /* Auth Flow */,
 				94D175B71D383D6700A4B2AA /* Post List */,
 				94D175B81D383D7900A4B2AA /* Post Detail */,
 				94D175D11D39ED2900A4B2AA /* Menu */,
+				94D175D61D3A23D900A4B2AA /* Compose */,
 				94D175BD1D3851F200A4B2AA /* Components */,
 			);
 			name = Interface;
@@ -407,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943171571D3CBCD800A56F4B /* UsernameViewController.swift in Sources */,
 				94D175B61D383B6000A4B2AA /* TeamColors.swift in Sources */,
 				943171521D3C690100A56F4B /* UserRouter.swift in Sources */,
 				94DA85E41D3747FC004749C9 /* User.swift in Sources */,
@@ -419,14 +443,17 @@
 				94DA85E01D3747C7004749C9 /* Post.swift in Sources */,
 				94D175D31D39ED4100A4B2AA /* MenuViewController.swift in Sources */,
 				94D175C81D38B72200A4B2AA /* KeyboardWrangling.swift in Sources */,
+				9431715B1D3CBD0700A56F4B /* LocationPermissionViewController.swift in Sources */,
 				94D175C61D38B17D00A4B2AA /* Comment.swift in Sources */,
 				94D175CC1D38C56800A4B2AA /* UsernameLabel.swift in Sources */,
 				94D175CA1D38C33000A4B2AA /* ContentLabel.swift in Sources */,
 				94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */,
+				943171591D3CBCFA00A56F4B /* PasswordViewController.swift in Sources */,
 				943C39081D3B71F20043D1AF /* Cartophile.swift in Sources */,
 				94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */,
 				94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */,
 				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
+				94F31FD91D3DFBD8004E281B /* Bookworm.swift in Sources */,
 				94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */,
 				9431714C1D3C5C7300A56F4B /* TeamColorButton.swift in Sources */,
 				943171501D3C5F0000A56F4B /* PokeballButton.swift in Sources */,
@@ -435,6 +462,7 @@
 				94D175D51D39EE9000A4B2AA /* ListMenuAnimator.swift in Sources */,
 				943C39061D3B64620043D1AF /* Magellan.swift in Sources */,
 				94DA85DE1D37410F004749C9 /* PostsViewController.swift in Sources */,
+				943171551D3CA55600A56F4B /* SignupViewController.swift in Sources */,
 				94D175BC1D3851EA00A4B2AA /* BouncingButton.swift in Sources */,
 				94D175CE1D38D65E00A4B2AA /* Scrolling.swift in Sources */,
 				94DA85CC1D373790004749C9 /* AppDelegate.swift in Sources */,

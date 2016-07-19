@@ -127,7 +127,7 @@ extension Post : PostRouterCompliant
             "is_private" : self.isPrivate
         ]
         
-        return dictionary as! [String : AnyObject]
+        return dictionary.safeFromNil()
     }
 
 }

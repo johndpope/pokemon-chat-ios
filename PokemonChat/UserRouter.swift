@@ -64,7 +64,7 @@ enum UserRouter: URLRequestConvertible
             case .Signup(let user):
                 return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: user.userParameters()).0
             case .CheckName(_):
-                return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0
+                return Alamofire.ParameterEncoding.URLEncodedInURL.encode(mutableURLRequest, parameters: nil).0
             
         }
     }

@@ -19,4 +19,19 @@ enum Team : String
         let color = TeamColors.colorForTeam(self)
         return color
     }
+    
+    func teamName() -> String
+    {
+        switch self
+        {
+            case .Yellow: return "Instinct"
+            case .Blue: return "Mystic"
+            case .Red: return "Valor"
+        }
+    }
+    
+    static func alertTeamChanged()
+    {
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_TEAM_SWITCH, object: User.currentUser())
+    }
 }

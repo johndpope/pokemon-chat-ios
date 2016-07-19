@@ -77,6 +77,29 @@ class Connector: NSObject
         }
     }
     
+    func checkUsername(name:String, completion:BooleanResponseClosure)
+    {
+        self.request(UserRouter.CheckName(name)) { (response, error) in
+            if error != nil
+            {
+                completion(false, error)
+            }
+            else // success
+            {
+                if let result = response as? [String: AnyObject],
+                        available = result["available"] as? Bool
+                {
+                    completion(available, nil)
+                    return
+                }
+                
+                // catch all parsing errors
+                let error = NSError(domain: "Connector", code: 400, userInfo: [NSLocalizedDescriptionKey : "Couldn't understand HTTP response"])
+                completion(false, error)
+            }
+        }
+    }
+    
     func getPostsForLocation(location:CLLocationCoordinate2D, completion: ([Post]?, [Post]?, NSError?) -> Void )
     {
         self.request(PostRouter.Locate(lat: location.latitude, long: location.longitude, within: 5)) { (response, error) in

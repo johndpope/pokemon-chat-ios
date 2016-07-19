@@ -18,6 +18,7 @@ private let TITLE_TEAM_ONLY = "team chat"
 
 private let SEGUE_TO_DETAIL = "ListToDetail"
 private let SEGUE_TO_MENU = "ListToMenu"
+private let SEGUE_TO_SIGNUP = "Signup"
 
 
 class PostsViewController: UIViewController, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate, MKMapViewDelegate
@@ -66,7 +67,10 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.refreshControl.addTarget(self, action: #selector(fetchPosts as Void -> Void), forControlEvents: .ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         
-        self.fetchPosts(nil, completion:nil)
+        self.ensureSignup { newUser in
+            Team.alertTeamChanged()
+            self.fetchPosts(nil, completion:nil)
+        }
     }
     
     override func viewWillAppear(animated: Bool)
@@ -155,8 +159,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.title = User.currentUser()?.teamMode == .Team ? TITLE_TEAM_ONLY : TITLE_NEARBY
         
         // let it be known
-        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_TEAM_SWITCH, object: User.currentUser())
-        
+        Team.alertTeamChanged()
         
         UIView.animateWithDuration(0.22, animations: {
             self.tableView.alpha = 0
@@ -270,7 +273,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
             }
             else // error
             {
-                self.alertForBadLocation()
+                Magellan.alertForFailedLocationFrom(self, completion: nil)
             }
         }
         
@@ -285,10 +288,30 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
                 fetchFromNetwork(location)
             }
         }
-        
     }
     
-    func updateMapPins()
+    private func ensureSignup(completion:SignupResultClosure)
+    {
+        if true || User.currentUser() == nil || User.currentUserToken() == nil
+        {
+            let signupNavigation = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupNavigation") as! UINavigationController
+            let signupController = signupNavigation.viewControllers.first as! SignupViewController
+            
+            self.navigationController!.presentViewController(signupNavigation, animated: true, completion: nil)
+            
+            signupController.signupWithCompletion({ (newUser:Bool) -> (Void) in
+                signupNavigation.dismissViewControllerAnimated(true, completion: {
+                    completion(newUser: newUser)
+                })
+            })
+        }
+        else // good to go
+        {
+            completion(newUser: false)
+        }
+    }
+    
+    private func updateMapPins()
     {
         for annotation in self.mapView.annotations
         {
@@ -302,26 +325,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     }
     
     
-    func alertForBadLocation()
-    {
-        // handle location error with alert
-        let controller = UIAlertController(title: "Drat", message: "Can't find your location. Check Settings to make sure you've given us permission to use your location.", preferredStyle: UIAlertControllerStyle.Alert)
-        // dismiss the controller option
-        let okayButton = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: { (_) in
-            controller.dismissViewControllerAnimated(true, completion: nil)
-        })
-        // open settings option
-        let settingsButton = UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: { (_) in
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
-        })
-        
-        controller.addAction(okayButton)
-        controller.addAction(settingsButton)
-        
-        self.presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    func addPostToTop(post: Post)
+    private func addPostToTop(post: Post)
     {
         let index = NSIndexPath(forRow: 0, inSection: 0)
         self.teamSwitch.on ? self.teamPosts.insert(post, atIndex: 0) : self.localPosts.insert(post, atIndex: 0)

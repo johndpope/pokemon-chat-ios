@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum NavigationBarSide
+{
+    case Left
+    case Right
+}
+
 class TeamNavigationBar: UINavigationBar
 {
     var teamSwitch : UISwitch? {
@@ -18,6 +24,8 @@ class TeamNavigationBar: UINavigationBar
             return nil
         }
     }
+    
+//
     
     required override init(frame: CGRect)
     {
@@ -44,6 +52,14 @@ class TeamNavigationBar: UINavigationBar
         self.listenForColorChanges(false)
     }
     
+    
+//MARK: Public
+    
+
+    
+    
+//MARK: Utilities
+    
     private func listenForColorChanges(shouldListen:Bool)
     {
         if shouldListen
@@ -62,8 +78,10 @@ class TeamNavigationBar: UINavigationBar
         self.updateBarBasedOnTeamState()
     }
     
-    func updateBarBasedOnTeamState()
+    private func updateBarBasedOnTeamState()
     {
+        self.translucent = false
+        
         if let user = User.currentUser() {
             let color = user.currentColor()
             let otherColor = color == COLOR_GRAY ? user.team?.color() : COLOR_GRAY
@@ -76,3 +94,25 @@ class TeamNavigationBar: UINavigationBar
         }
     }
 }
+
+
+/* * * * * * * * */
+
+/**
+    UINavigationBar Extension
+ */
+extension UINavigationItem
+{
+    func showSpinner(onSide side:NavigationBarSide)
+    {
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+        let barButtonSpinner = UIBarButtonItem(customView: spinner)
+        if side == .Right { self.rightBarButtonItem = barButtonSpinner }
+        else if side == .Left { self.leftBarButtonItem = barButtonSpinner }
+    }
+}
+
+
+

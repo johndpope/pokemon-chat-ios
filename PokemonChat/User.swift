@@ -9,14 +9,20 @@
 import UIKit
 import KeychainAccess
 
+
+let NOTIFICATION_LOGGED_OUT = "User_Logged_Out"
+
+
 //// SENSITIVE KEYs
 private let LockBox = Keychain(service: "com.PokemonGOTeamChat")
 private let LOCKBOX_KEY_TOKEN = "LOGIN___TOKEN"
+private let USER_DEFAULT_SUITE = "CurrentUser"
 //// DO NOT CHANGE
 
 
 /// global in-memory reference for current user
 private var _currentUser : User? = nil
+
 
 enum TeamMode
 {
@@ -26,13 +32,19 @@ enum TeamMode
 
 class User: NSObject
 {
-    private static var userDefaults = NSUserDefaults(suiteName: "CurrentUser")! // do not modify name
+    private static var userDefaults = NSUserDefaults(suiteName: USER_DEFAULT_SUITE)! // do not modify name
 
     var _id : String?
     var username: String?
     var team : Team?
     var password : String?
     var teamMode = TeamMode.Local
+    
+    var isRegistered : Bool {
+        get {
+            return self._id != nil
+        }
+    }
     
     class func currentUserToken() -> String?
     { // for the current user session
@@ -67,6 +79,17 @@ class User: NSObject
         return valid
     }
     
+    func signUp(completion:((User, NSError?) -> Void)?)
+    {
+        print("Signing up a new user")
+        Connector().signUpUser(self) { (user, token, error) in
+            if let user = user, token = token {
+                self.updateUser(user, token: token)
+            }
+            completion?(self, error)
+        }
+    }
+    
     func login(completion:((User, NSError?) -> Void)?)
     {
         Connector().logInUser(self) { user, token, error in
@@ -79,9 +102,12 @@ class User: NSObject
     
     func logOut(completion: (Bool, NSError?) -> Void)
     {
-        // do something, then
         // destroy local token
         LockBox[LOCKBOX_KEY_TOKEN] = nil
+        // destroy user defaults
+        User.userDefaults.removeSuiteNamed(USER_DEFAULT_SUITE)
+        // alert everyone
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_LOGGED_OUT, object: nil)
     }
     
     private func updateUser(fromUser:User, token:String)
@@ -141,7 +167,7 @@ extension User : UserRouterCompliant
             "password" : self.password,
             "team" : self.team?.rawValue
         ]
-        return params as! [String : AnyObject];
+        return params.safeFromNil()
     }
     
     class func fromParams(params: [String : AnyObject]) -> User?

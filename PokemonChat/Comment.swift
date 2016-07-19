@@ -108,6 +108,6 @@ extension Comment : CommentRouterCompliant
             "content" : self.content
         ]
         
-        return dictionary as! [String : AnyObject]
+        return dictionary.safeFromNil()
     }
 }
