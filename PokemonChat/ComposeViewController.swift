@@ -11,6 +11,7 @@ import MapKit
 
 private let TITLE_DEFAULT = "new post"
 private let TITLE_MAP = "choose location"
+private let TITLE_TEAM = "team post"
 
 protocol ComposeViewControllerDelegate
 {
@@ -37,6 +38,12 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
         }
     }
     
+    private var titleForComposing : String {
+        get{
+            User.currentUser()?.teamMode == .Team ? TITLE_TEAM : TITLE_DEFAULT
+        }
+    }
+    
     var delegate : ComposeViewControllerDelegate?
 
     override func viewDidLoad()
@@ -50,6 +57,8 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
         self.textView.contentInset.bottom = 8
         self.listenForKeyboardNotifications(true)
         self.textView.becomeFirstResponder()
+        
+        self.title = self.titleForComposing
     }
     
     deinit
@@ -125,7 +134,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
                 // show content
                 self.contentView.hidden = false
                 self.textView.becomeFirstResponder()
-                self.title = TITLE_DEFAULT
+                self.title = self.titleForComposing
                 
                 // show left button
                 self.navigationItem.leftBarButtonItem = self.leftNavigationButton

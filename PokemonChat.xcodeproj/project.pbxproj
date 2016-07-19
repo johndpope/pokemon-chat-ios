@@ -324,6 +324,7 @@
 				94DA85C61D373790004749C9 /* Resources */,
 				69805089A615F98D9E7082F3 /* [CP] Embed Pods Frameworks */,
 				FF11671FFDB2667550E9108A /* [CP] Copy Pods Resources */,
+				94F31FDE1D3E1DC8004E281B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -410,6 +411,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonChat/Pods-PokemonChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		94F31FDE1D3E1DC8004E281B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4462eb4f6ec39f8f4c176a45907d36a7cdcfff1e de0e6278fb58cdcf403dae5b201f71b5310529c0b6b07adc3aa257fade5bf3ed";
 		};
 		FF11671FFDB2667550E9108A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

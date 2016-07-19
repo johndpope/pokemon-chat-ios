@@ -5,6 +5,9 @@ target 'PokemonChat' do
 	pod 'Alamofire'
 	pod 'PureLayout'
 	pod 'KeychainAccess'
+	pod 'Fabric'
+	pod 'Crashlytics'	
+	pod 'Answers'
 end
 
 
