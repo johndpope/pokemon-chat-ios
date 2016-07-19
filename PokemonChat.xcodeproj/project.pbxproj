@@ -48,6 +48,7 @@
 		94DA85E41D3747FC004749C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E31D3747FC004749C9 /* User.swift */; };
 		94DA85E61D374859004749C9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA85E51D374859004749C9 /* PostTableViewCell.swift */; };
 		94F31FD91D3DFBD8004E281B /* Bookworm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F31FD81D3DFBD8004E281B /* Bookworm.swift */; };
+		94F31FDB1D3E1383004E281B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F31FDA1D3E1383004E281B /* SettingsViewController.swift */; };
 		C9151FFDA1F7FDF4103C49C3 /* Pods_PokemonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C25202464090AAEDA74F8E /* Pods_PokemonChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		94DA85E31D3747FC004749C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		94DA85E51D374859004749C9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		94F31FD81D3DFBD8004E281B /* Bookworm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookworm.swift; sourceTree = "<group>"; };
+		94F31FDA1D3E1383004E281B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				94D175D21D39ED4100A4B2AA /* MenuViewController.swift */,
 				9431714D1D3C5E3D00A56F4B /* AddPostButton.swift */,
 				9431714F1D3C5F0000A56F4B /* PokeballButton.swift */,
+				94F31FDA1D3E1383004E281B /* SettingsViewController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				94D175AA1D3807B000A4B2AA /* PostRouter.swift in Sources */,
 				94D175D01D39C31800A4B2AA /* CommentRouter.swift in Sources */,
 				94D175AC1D380A3400A4B2AA /* Team.swift in Sources */,
+				94F31FDB1D3E1383004E281B /* SettingsViewController.swift in Sources */,
 				94F31FD91D3DFBD8004E281B /* Bookworm.swift in Sources */,
 				94D175B11D380DDF00A4B2AA /* Dating.swift in Sources */,
 				9431714C1D3C5C7300A56F4B /* TeamColorButton.swift in Sources */,

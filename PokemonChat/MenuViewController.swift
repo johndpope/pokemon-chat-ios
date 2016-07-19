@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController
+class MenuViewController: UIViewController, UINavigationControllerDelegate
 {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var menuButton: BouncingButton!
@@ -22,11 +22,19 @@ class MenuViewController: UIViewController
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
     }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        self.navigationController?.delegate = self
+    }
 
     @IBAction func menuButtonPressed(sender: UIButton)
     {
+        self.navigationController?.delegate = self.navigationController?.viewControllers[0] as? PostsViewController
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     
     @IBAction func addPostButtonPressed(sender: AnyObject)
     {

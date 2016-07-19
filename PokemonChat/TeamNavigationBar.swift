@@ -81,6 +81,7 @@ class TeamNavigationBar: UINavigationBar
     private func updateBarBasedOnTeamState()
     {
         self.translucent = false
+        self.opaque = true
         
         if let user = User.currentUser() {
             let color = user.currentColor()

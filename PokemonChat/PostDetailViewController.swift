@@ -62,10 +62,10 @@ class PostDetailViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBAction func sendButtonPressed(sender: UIButton)
     {
-        self.sendButton.enabled = false
-        self.commentField.enabled = true
-        
         if let commentText = self.commentField.text where commentText.hasText() {
+            
+            self.sendButton.enabled = false
+            self.commentField.enabled = true
             
             self.view.endEditing(true)
             

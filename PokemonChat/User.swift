@@ -84,7 +84,7 @@ class User: NSObject
         print("Signing up a new user")
         Connector().signUpUser(self) { (user, token, error) in
             if let user = user, token = token {
-                self.updateUser(user, token: token)
+                self.updateCurrentUser(user, token: token)
             }
             completion?(self, error)
         }
@@ -94,7 +94,7 @@ class User: NSObject
     {
         Connector().logInUser(self) { user, token, error in
             if let user = user, token = token {
-                self.updateUser(user, token: token)
+                self.updateCurrentUser(user, token: token)
             }
             completion?(self, error)
         }
@@ -110,11 +110,13 @@ class User: NSObject
         NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_LOGGED_OUT, object: nil)
     }
     
-    private func updateUser(fromUser:User, token:String)
+    private func updateCurrentUser(fromUser:User, token:String)
     {
         self.copyFromUser(fromUser)
         self.saveAuthToken(token)
         self.persistUserData()
+        // become the active client
+        _currentUser = self
     }
     
     private func copyFromUser(user:User)

@@ -76,12 +76,12 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        // unpop any selected cells
-        delay(0.2) {
+        // unselect any selected cells
+//        delay(0.1) {
             if let selectedCell = self.tableView.indexPathForSelectedRow {
                 self.tableView.deselectRowAtIndexPath(selectedCell, animated: true)
             }
-        }
+//        }
     }
     
     override func viewDidAppear(animated: Bool)
@@ -107,7 +107,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
-        if toVC is MenuViewController || fromVC is MenuViewController
+        if (fromVC is PostsViewController && toVC is MenuViewController) || (fromVC is MenuViewController && toVC is PostsViewController)
         {
             let animator = ListMenuAnimator()
             animator.isPushAnimation = (operation == .Push)
@@ -292,7 +292,7 @@ class PostsViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     private func ensureSignup(completion:SignupResultClosure)
     {
-        if true || User.currentUser() == nil || User.currentUserToken() == nil
+        if User.currentUser() == nil || User.currentUserToken() == nil
         {
             let signupNavigation = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SignupNavigation") as! UINavigationController
             let signupController = signupNavigation.viewControllers.first as! SignupViewController

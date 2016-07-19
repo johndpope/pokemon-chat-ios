@@ -9,7 +9,7 @@
 import UIKit
 
 let COLOR_YELLOW = UIColor(hex:0xF0B922)
-let COLOR_BLUE = UIColor(hex:0x4243A2)
+let COLOR_BLUE = UIColor(hex:0x4445BE)
 let COLOR_RED = UIColor(hex:0xC54632)
 let COLOR_GRAY = UIColor(hex:0x4A4A4A)
 

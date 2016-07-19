@@ -45,7 +45,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
         
         self.setupMap()
         
-        self.textView.tintColor = User.currentUser()?.currentColor()
+        self.textView.tintColor = User.currentUser()?.team?.color()
         self.textView.text = nil
         self.textView.contentInset.bottom = 8
         self.listenForKeyboardNotifications(true)
