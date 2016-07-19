@@ -723,10 +723,10 @@
             </objects>
             <point key="canvasLocation" x="636" y="1334"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="r3Z-Mk-5lg">
             <objects>
-                <tableViewController id="p71-EM-1hG" sceneMemberID="viewController">
+                <tableViewController id="p71-EM-1hG" customClass="SettingsViewController" customModule="PokemonChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oQA-pJ-ScJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

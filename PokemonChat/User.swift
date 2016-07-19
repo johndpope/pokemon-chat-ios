@@ -102,12 +102,25 @@ class User: NSObject
     
     func logOut(completion: (Bool, NSError?) -> Void)
     {
-        // destroy local token
-        LockBox[LOCKBOX_KEY_TOKEN] = nil
-        // destroy user defaults
-        User.userDefaults.removeSuiteNamed(USER_DEFAULT_SUITE)
-        // alert everyone
-        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_LOGGED_OUT, object: nil)
+        Connector().logOutUser(self) { (itWorked, error) -> (Void) in
+            if itWorked && error == nil
+            {
+                // destroy local token
+                LockBox[LOCKBOX_KEY_TOKEN] = nil
+                // destroy user defaults
+                User.userDefaults.removeSuiteNamed(USER_DEFAULT_SUITE)
+                // let the caller do something first
+                completion(true, nil)
+                // alert everyone
+                NSNotificationCenter.defaultCenter().postNotificationName(NOTIFICATION_LOGGED_OUT, object: nil)
+
+            }
+            else // error 
+            {
+                print("Error logging out: \(error)")
+                completion(false, error)
+            }
+        }
     }
     
     private func updateCurrentUser(fromUser:User, token:String)

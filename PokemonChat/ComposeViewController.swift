@@ -40,7 +40,7 @@ class ComposeViewController: UIViewController, MKMapViewDelegate
     
     private var titleForComposing : String {
         get{
-            User.currentUser()?.teamMode == .Team ? TITLE_TEAM : TITLE_DEFAULT
+            return User.currentUser()?.teamMode == .Team ? TITLE_TEAM : TITLE_DEFAULT
         }
     }
     

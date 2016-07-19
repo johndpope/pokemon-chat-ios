@@ -12,7 +12,7 @@ import Foundation
 /**
     A completion handler for a boolean operation
  */
-typealias BooleanResponseClosure = (Bool, ErrorType?) -> (Void)
+typealias BooleanResponseClosure = (Bool, NSError?) -> (Void)
 
 /**
     Async wait helper. GCD abstraction.

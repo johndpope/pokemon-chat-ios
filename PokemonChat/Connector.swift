@@ -77,6 +77,22 @@ class Connector: NSObject
         }
     }
     
+    func logOutUser(user:User, completion:BooleanResponseClosure)
+    {
+        self.request(UserRouter.LogOut(user)) { (response, error) in
+            if let result = response as? [String:AnyObject],
+                    success = result["success"] as? Bool
+            {
+                completion(success, error)
+                return
+            }
+            
+            // catch all parsing errors
+            let error = NSError(domain: "Connector", code: 400, userInfo: [NSLocalizedDescriptionKey : "Couldn't understand HTTP response"])
+            completion(false, error)
+        }
+    }
+    
     func checkUsername(name:String, completion:BooleanResponseClosure)
     {
         self.request(UserRouter.CheckName(name)) { (response, error) in

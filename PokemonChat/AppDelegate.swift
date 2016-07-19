@@ -9,20 +9,18 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Answers
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var thing: String? = "flux"
-    var not: String? = nil
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
         Fabric.with([Crashlytics.self, Answers.self])
-
+        
+        self.expectTeardownOnLogout()
+        
         return true
     }
 
@@ -46,6 +44,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+//MARK: Utilities
+    
+    private func expectTeardownOnLogout()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(resetWindow), name: NOTIFICATION_LOGGED_OUT, object: nil)
+    }
+    
+    @objc private func resetWindow()
+    {
+        if let subviews = self.window?.subviews
+        {
+            for view in subviews
+            {
+                view.removeFromSuperview()
+            }
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateInitialViewController()
+        self.window?.rootViewController = initialViewController
     }
 
 

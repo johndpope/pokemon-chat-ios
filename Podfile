@@ -7,7 +7,6 @@ target 'PokemonChat' do
 	pod 'KeychainAccess'
 	pod 'Fabric'
 	pod 'Crashlytics'	
-	pod 'Answers'
 end
 
 
